@@ -63,6 +63,10 @@
   "userData": {
     "hasAlpha": false,
     "type": "texture",
-    "redirect": "6fca60e7-fdd2-48e3-b0df-1fe4202da842@6c48a"
+    "redirect": "6fca60e7-fdd2-48e3-b0df-1fe4202da842@6c48a",
+    "compressSettings": {
+      "useCompressTexture": false
+    },
+    "flipVertical": false
   }
 }
