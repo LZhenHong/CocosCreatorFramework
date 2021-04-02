@@ -68,7 +68,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Title",
+    "_name": "title",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -200,7 +200,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Loading",
+    "_name": "loading",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -359,7 +359,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ButtonContainer",
+    "_name": "button_container",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -414,7 +414,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "PlayButton",
+    "_name": "play_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 16
@@ -791,7 +791,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "SettingButton",
+    "_name": "setting_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 16
@@ -1254,7 +1254,9 @@
     "playButton": {
       "__id__": 28
     },
-    "settingButton": null,
+    "settingButton": {
+      "__id__": 45
+    },
     "_id": ""
   },
   {
