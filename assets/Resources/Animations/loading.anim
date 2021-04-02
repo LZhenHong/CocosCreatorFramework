@@ -1,0 +1,145 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "loading",
+  "_objFlags": 0,
+  "_native": "",
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "events": [],
+  "_duration": 3.3,
+  "_keys": [
+    [
+      0,
+      1.5,
+      1.8,
+      3.3
+    ],
+    [
+      0,
+      1.5,
+      1.8,
+      3.3
+    ],
+    [
+      0,
+      1.5,
+      1.8,
+      3.3
+    ],
+    [
+      1.5,
+      1.55,
+      1.65,
+      1.75,
+      1.8
+    ]
+  ],
+  "_stepness": 0,
+  "_curves": [
+    {
+      "modifiers": [
+        "x"
+      ],
+      "data": {
+        "keys": 0,
+        "values": [
+          475,
+          25,
+          12.5,
+          -450
+        ],
+        "easingMethods": {
+          "0": "quadInOut",
+          "2": "quadInOut"
+        }
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "y"
+      ],
+      "data": {
+        "keys": 1,
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ],
+        "easingMethods": {
+          "2": "quadInOut"
+        }
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "z"
+      ],
+      "data": {
+        "keys": 2,
+        "values": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "easingMethods": {
+          "2": "quadInOut"
+        }
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "eulerAngles"
+      ],
+      "data": {
+        "keys": 3,
+        "values": [
+          {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 10
+          },
+          {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": -10
+          },
+          {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 10
+          },
+          {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        ],
+        "easingMethods": {}
+      }
+    }
+  ],
+  "_commonTargets": [
+    {
+      "modifiers": [
+        "position"
+      ]
+    }
+  ],
+  "_hash": 744767309
+}
