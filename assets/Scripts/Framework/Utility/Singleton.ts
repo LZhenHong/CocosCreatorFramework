@@ -1,9 +1,7 @@
-import { Component } from "cc";
-
-export default class Singleton extends Component {
+export default class Singleton {
     private static _instance: Singleton;
 
-    public static sharedInstance() {
+    public static sharedInstance(): any {
         if (!this._instance) {
             this._instance = new this;
         }

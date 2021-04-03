@@ -33,10 +33,13 @@
       },
       {
         "__id__": 56
+      },
+      {
+        "__id__": 58
       }
     ],
     "_prefab": {
-      "__id__": 58
+      "__id__": 59
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1241,7 +1244,7 @@
     "fileId": "a0ylg9D7JI07ytiD/qYfKU"
   },
   {
-    "__type__": "a02ab3GmgZAboQImx7LcgPU",
+    "__type__": "ca6f3xif2JPp5jIGyzn2wLG",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1251,17 +1254,33 @@
     "__prefab": {
       "__id__": 57
     },
-    "playButton": {
-      "__id__": 28
-    },
-    "settingButton": {
-      "__id__": 45
-    },
+    "gameObjects": [
+      {
+        "__id__": 24
+      },
+      {
+        "__id__": 41
+      }
+    ],
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "5bQq0zPsxI4rNKIHa4fAaB"
+    "fileId": "7fwKV7BhhIB6v9whLpnEu1"
+  },
+  {
+    "__type__": "c6a35cazhlPgowudMmWOtze",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "showMask": true,
+    "enableAndroidBack": false,
+    "viewAnimation": 0,
+    "_id": ""
   },
   {
     "__type__": "cc.PrefabInfo",
