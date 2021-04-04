@@ -1,7 +1,11 @@
 import { _decorator, Node } from 'cc';
-import Singleton from "./Utility/Singleton";
+import { BaseManager } from './Utility/BaseManager';
 
-export class TimeManager extends Singleton {
+export class TimeManager extends BaseManager {
+    protected onInit() {}
+
+    protected onDestroy() {}
+
     private _root: Node|null = null;
 
     public initWithGameRoot(root: Node) {

@@ -1,5 +1,7 @@
-import Singleton from "./Utility/Singleton";
+import { BaseManager } from "./Utility/BaseManager";
 
-export class AudioManager extends Singleton {
-    
+export class AudioManager extends BaseManager {
+    protected onInit() {}
+
+    protected onDestroy() {}
 }
