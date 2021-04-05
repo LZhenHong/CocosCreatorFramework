@@ -24,8 +24,6 @@ export class ViewHolder extends Component {
                 this._gameObjectMap.set(name, gameObject);
             }
         }
-
-        console.log(this._gameObjectMap.toString());
     }
 
     getGameObjectWithName(name: string) {

@@ -16,12 +16,15 @@ export class ViewOptions extends Component {
     public showMask: boolean = true;
     @property({tooltip: "是否响应 Android 物理返回键", displayName: "Enable Android Back"})
     public enableAndroidBack: boolean = false;
+    @property({tooltip: "关闭界面时是否销毁", displayName: "Destroy When Close"})
+    public destroyWhenClose: boolean = false;
     @property({type: ViewAnimationEnum, tooltip: "界面展示动画", displayName: "View Animation"})
     public viewAnimation = ViewAnimationEnum.None;
 
     resetInEditor() {
         this.showMask = false;
         this.enableAndroidBack = false;
+        this.destroyWhenClose = false;
         this.viewAnimation = ViewAnimationEnum.None;
     }
 }

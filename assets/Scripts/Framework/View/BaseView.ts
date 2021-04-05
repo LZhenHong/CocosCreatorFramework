@@ -13,6 +13,7 @@ export abstract class BaseView {
     private _buttonEventListeners: Map<Button, Function> = new Map<Button, Function>();
     
     /**
+     * 初始化 View
      * 只能被 ViewManager 调用
      *
      * @protected
@@ -24,6 +25,7 @@ export abstract class BaseView {
         this.animation = this.gameObject.getComponent(Animation);
         this.viewHolder = this.gameObject.getComponent(ViewHolder);
         this.viewOptions = this.gameObject.getComponent(ViewOptions);
+        this._buttonEventListeners.clear();
 
         this.onInit();
     }

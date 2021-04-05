@@ -11,6 +11,7 @@ export abstract class BaseManager {
     }
 
     public destroy() {
+        this._inited = false;
         this.onDestroy();
     }
 
