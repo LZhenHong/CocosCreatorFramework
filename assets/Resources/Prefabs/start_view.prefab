@@ -39,7 +39,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 59
+      "__id__": 60
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1276,11 +1276,18 @@
       "__id__": 1
     },
     "_enabled": true,
-    "__prefab": null,
+    "__prefab": {
+      "__id__": 59
+    },
     "showMask": true,
     "enableAndroidBack": false,
+    "destroyWhenClose": false,
     "viewAnimation": 0,
     "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "02NsaBtQFGg5aVwTGGhxZl"
   },
   {
     "__type__": "cc.PrefabInfo",

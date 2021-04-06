@@ -16,11 +16,11 @@ export class ViewHolder extends Component {
     _mapGameObjects() {
         this._gameObjectMap.clear();
         if (this.gameObjects.length > 0) {
-            for (let gameObject of this.gameObjects) {
+            for (const gameObject of this.gameObjects) {
                 if (gameObject === null) {
                     continue;
                 }
-                let name = gameObject.name;
+                const name = gameObject.name;
                 this._gameObjectMap.set(name, gameObject);
             }
         }

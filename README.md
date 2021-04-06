@@ -4,7 +4,10 @@ Just a Cocos Creator Game.
 
 ## TypeScript
 
-1. [TypeScript 入门教程](https://ts.xcatliu.com/introduction/what-is-typescript.html)
+1. [TypeScript 教程](https://www.runoob.com/typescript/ts-tutorial.html)
+2. [TypeScript 入门教程](https://ts.xcatliu.com/introduction/what-is-typescript.html)
+3. [TypeScript 中文网](https://www.tslang.cn/)
+4. [TypeScript 中文手册](https://typescript.bootcss.com/)
 
 ## Cocos Creator
 
@@ -62,3 +65,19 @@ Just a Cocos Creator Game.
 6. [开启碰撞监听](https://docs.cocos.com/creator/3.0/manual/zh/physics-2d/physics-2d-rigid-body.html#%E5%BC%80%E5%90%AF%E7%A2%B0%E6%92%9E%E7%9B%91%E5%90%AC)
 7. [刚体类型](https://docs.cocos.com/creator/3.0/manual/zh/physics-2d/physics-2d-rigid-body.html#%E5%88%9A%E4%BD%93%E7%B1%BB%E5%9E%8B)
 8. [力与冲量](https://docs.cocos.com/creator/3.0/manual/zh/physics-2d/physics-2d-rigid-body.html#%E5%8A%9B%E4%B8%8E%E5%86%B2%E9%87%8F)
+
+### 2D 对象
+
+1. [2D 对象渲染结构说明](https://docs.cocos.com/creator/3.0/manual/zh/2d-object/#2d-%E5%AF%B9%E8%B1%A1%E6%B8%B2%E6%9F%93%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E)
+2. [渲染排序说明](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/priority.html)
+3. [UI 节点排序](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/priority.html#ui-%E8%8A%82%E7%82%B9%E6%8E%92%E5%BA%8F)
+4. [Camera 和 Canvas 设置](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/priority.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
+5. [2D 渲染组件合批规则说明](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/ui-batch.html)
+
+### 2D 渲染组件
+
+1. [渲染模式](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/sprite.html#%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F)
+2. 
+
+
+

@@ -1,8 +1,16 @@
-import { _decorator, Component, Animation, Button } from 'cc';
+import { _decorator, Component, Animation, Button, js } from 'cc';
+import { GameManager } from '../GameManager';
 import { ViewHolder } from './ViewHolder';
 import { ViewOptions } from './ViewOptions';
 const { ccclass } = _decorator;
 
+/**
+ * 基础的 View 类
+ *
+ * @export
+ * @abstract
+ * @class BaseView
+ */
 @ccclass('BaseView')
 export abstract class BaseView {
     protected gameObject: Component|null = null;
@@ -11,32 +19,59 @@ export abstract class BaseView {
     protected viewHolder: ViewHolder|null = null;
 
     private _buttonEventListeners: Map<Button, Function> = new Map<Button, Function>();
+    private _viewPrefabName: string = '';
     
     /**
      * 初始化 View
      * 只能被 ViewManager 调用
      *
-     * @protected
+     * @public
      * @param {Component} component View 对象
      * @memberof BaseView
      */
-    protected vm_onInit(component: Component) {
+    public vm_init(component: Component) {
         this.gameObject = component;
         this.animation = this.gameObject.getComponent(Animation);
         this.viewHolder = this.gameObject.getComponent(ViewHolder);
         this.viewOptions = this.gameObject.getComponent(ViewOptions);
         this._buttonEventListeners.clear();
 
+        this._clazzNameToViewPrefab();
+
         this.onInit();
+    }
+
+    private _clazzNameToViewPrefab() {
+        var clazzName = js.getClassName(this);
+        const re = /[A-Z]/;
+        var index = clazzName.search(re);
+        while (index !== -1) {
+            const firstStr = clazzName.substring(0, index);
+            var lastStr = clazzName.substring(index);
+            const firstChar = lastStr.charAt(0).toLocaleLowerCase();
+            lastStr = '_' + firstChar + lastStr.substring(1);
+            clazzName = firstStr.concat(lastStr);
+            index = clazzName.search(re);
+        };
+
+        if (clazzName.startsWith('_')) {
+            clazzName = clazzName.substring(1);
+        }
+        this._viewPrefabName = clazzName;
+    }
+
+    public viewPrefabPath() {
+        const path = GameManager.sharedInstance()?.viewPrefabDirectory + this._viewPrefabName;
+        return path;
     }
 
     /**
      * 销毁 View
      * 只能被 ViewManager 调用
-     * @protected
+     * @public
      * @memberof BaseView
      */
-    protected vm_destroy() {
+    public vm_destroy() {
         this._buttonEventListeners.forEach((callback, btn) => {
             btn.node.off(Button.EventType.CLICK, callback, this);
         });
