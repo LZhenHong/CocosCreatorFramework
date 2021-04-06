@@ -81,7 +81,8 @@ Just a Cocos Creator Game.
 3. [Mask（遮罩）组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/mask.html)
 4. [Graphics 组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/graphics.html)
 5. [UIStaticBatch 组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/ui-static.html)
-6. 
+6. [Spine 碰撞检测](https://docs.cocos.com/creator/3.0/manual/zh/editor/components/spine.html#spine-%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B)
+7. [TiledLayer 与节点遮挡](https://docs.cocos.com/creator/3.0/manual/zh/editor/components/tiledmap.html#tiledlayer-%E4%B8%8E%E8%8A%82%E7%82%B9%E9%81%AE%E6%8C%A1)
 
 
 

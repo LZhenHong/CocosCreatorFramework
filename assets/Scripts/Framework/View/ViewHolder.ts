@@ -26,8 +26,8 @@ export class ViewHolder extends Component {
         }
     }
 
-    getGameObjectWithName(name: string) {
-        return this._gameObjectMap.get(name);
+    getGameObjectWithName<T extends Component>(name: string) {
+        return this._gameObjectMap.get(name) as T;
     }
 
     resetInEditor() {

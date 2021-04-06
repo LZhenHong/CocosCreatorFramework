@@ -8,10 +8,10 @@ export class StartView extends BaseView {
     private _settingButton: Button|null = null;
 
     onInit() {
-        this._playButton = this.viewHolder?.getGameObjectWithName('play_button') as Button;
+        this._playButton = this.getGameObjectWithName<Button>('play_button');
         this.addClickEventListener(this._playButton, this.onPlayButtonHandle);
 
-        this._settingButton = this.viewHolder?.getGameObjectWithName('setting_button') as Button;
+        this._settingButton = this.getGameObjectWithName<Button>('setting_button');
         this.addClickEventListener(this._settingButton, this.onSettingButtonHandle);
     }
     

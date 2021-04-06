@@ -1216,7 +1216,7 @@
     "fileId": "a0ylg9D7JI07ytiD/qYfKU"
   },
   {
-    "__type__": "ca6f3xif2JPp5jIGyzn2wLG",
+    "__type__": "c6a35cazhlPgowudMmWOtze",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1225,6 +1225,27 @@
     "_enabled": true,
     "__prefab": {
       "__id__": 55
+    },
+    "showMask": true,
+    "enableAndroidBack": false,
+    "destroyWhenClose": false,
+    "viewAnimation": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "02NsaBtQFGg5aVwTGGhxZl"
+  },
+  {
+    "__type__": "ca6f3xif2JPp5jIGyzn2wLG",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 57
     },
     "gameObjects": [
       {
@@ -1239,27 +1260,6 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "7fwKV7BhhIB6v9whLpnEu1"
-  },
-  {
-    "__type__": "c6a35cazhlPgowudMmWOtze",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 57
-    },
-    "showMask": true,
-    "enableAndroidBack": false,
-    "destroyWhenClose": false,
-    "viewAnimation": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "02NsaBtQFGg5aVwTGGhxZl"
   },
   {
     "__type__": "cc.PrefabInfo",

@@ -1,5 +1,6 @@
-import { _decorator, Component, Animation, Button, js } from 'cc';
+import { _decorator, Component, Animation, Button, js, Asset } from 'cc';
 import { GameManager } from '../GameManager';
+import { AssetHolder } from './AssetHolder';
 import { ViewHolder } from './ViewHolder';
 import { ViewOptions } from './ViewOptions';
 const { ccclass } = _decorator;
@@ -17,6 +18,7 @@ export abstract class BaseView {
     protected animation: Animation|null = null;
     protected viewOptions: ViewOptions|null = null;
     protected viewHolder: ViewHolder|null = null;
+    protected assetHolder: AssetHolder|null = null;
 
     private _buttonEventListeners: Map<Button, Function> = new Map<Button, Function>();
     private _viewPrefabName: string = '';
@@ -33,6 +35,7 @@ export abstract class BaseView {
         this.gameObject = component;
         this.animation = this.gameObject.getComponent(Animation);
         this.viewHolder = this.gameObject.getComponent(ViewHolder);
+        this.assetHolder = this.gameObject.getComponent(AssetHolder);
         this.viewOptions = this.gameObject.getComponent(ViewOptions);
         this._buttonEventListeners.clear();
 
@@ -81,6 +84,38 @@ export abstract class BaseView {
     }
 
     /**
+     * 获取 ViewHolder 的引用
+     *
+     * @protected
+     * @template T Component 引用类型
+     * @param {string} name 引用的名称
+     * @returns
+     * @memberof BaseView
+     */
+    protected getGameObjectWithName<T extends Component>(name: string) {
+        if (this.viewHolder) {
+            return this.viewHolder.getGameObjectWithName<T>(name);
+        }
+        return null;
+    }
+
+    /**
+     * 获取 AssetHolder 的引用
+     *
+     * @protected
+     * @template T Asset 的引用类型
+     * @param {string} name 引用的名称
+     * @returns
+     * @memberof BaseView
+     */
+    protected getAssetWithName<T extends Asset>(name: string) {
+        if (this.assetHolder) {
+            return this.assetHolder.getAssetWithName<T>(name);
+        }
+        return null;
+    }
+
+    /**
      * 给 Button 添加点击监听，无需在 Destroy 时移除监听
      *
      * @protected
@@ -88,7 +123,11 @@ export abstract class BaseView {
      * @param {Function} callback 监听回调
      * @memberof BaseView
      */
-    protected addClickEventListener(btn: Button, callback: Function) {
+    protected addClickEventListener(btn: Button|null, callback: Function) {
+        if (!btn) {
+            return;
+        }
+        
         btn.node.on(Button.EventType.CLICK, callback, this);
         this._buttonEventListeners.set(btn, callback);
     }
@@ -114,9 +153,11 @@ export abstract class BaseView {
         this.onClose();
     }
 
+    // #region 子类实现
     protected abstract onInit(): void;
     protected abstract onDestroy(): void;
 
     protected abstract onOpen(): void;
     protected abstract onClose(): void;
+    // #endregion
 }
