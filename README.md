@@ -77,7 +77,11 @@ Just a Cocos Creator Game.
 ### 2D 渲染组件
 
 1. [渲染模式](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/sprite.html#%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F)
-2. 
+2. [文本缓存类型](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/label.html#%E6%96%87%E6%9C%AC%E7%BC%93%E5%AD%98%E7%B1%BB%E5%9E%8B%EF%BC%88cache-mode%EF%BC%89)
+3. [Mask（遮罩）组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/mask.html)
+4. [Graphics 组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/graphics.html)
+5. [UIStaticBatch 组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/ui-static.html)
+6. 
 
 
 
