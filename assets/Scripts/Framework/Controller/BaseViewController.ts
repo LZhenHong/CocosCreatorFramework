@@ -4,8 +4,8 @@ import { BaseController } from './BaseController';
 const { ccclass } = _decorator;
 
 @ccclass('BaseViewController')
-export abstract class BaseViewController<VT extends BaseView> extends BaseController {
-    protected view: VT|null = null;
+export abstract class BaseViewController<T extends BaseView> extends BaseController {
+    protected view: T|null = null;
 
     showView() {
         if (this.view) {

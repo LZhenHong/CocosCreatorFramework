@@ -132,7 +132,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 507.8,
-      "height": 50.4
+      "height": 126
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -173,8 +173,8 @@
     "_actualFontSize": 100,
     "_fontSize": 100,
     "_fontFamily": "Arial",
-    "_lineHeight": 40,
-    "_overflow": 3,
+    "_lineHeight": 100,
+    "_overflow": 0,
     "_enableWrapText": true,
     "_font": {
       "__uuid__": "475870f1-8161-4489-88a2-2e1860816be8"
@@ -1230,6 +1230,7 @@
     "enableAndroidBack": false,
     "destroyWhenClose": false,
     "viewAnimation": 0,
+    "viewLayer": 10,
     "_id": ""
   },
   {

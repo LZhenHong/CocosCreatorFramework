@@ -1,4 +1,5 @@
 import { _decorator, Component, Canvas, Camera, Constructor, CCString } from 'cc';
+import { BaseController } from './Controller/BaseController';
 import { BaseManager } from './Utility/BaseManager';
 const { ccclass, property } = _decorator;
 
@@ -15,10 +16,23 @@ export class GameManager extends Component {
     public uiCamera: Camera|null = null;
     @property({type: Canvas, tooltip: '游戏 UI 画布', displayName: 'UI Canvas'})
     public uiCanvas: Canvas|null = null;
+    /// 游戏 UI 层级容器
+    @property({type: Component, tooltip: 'UI 根节点', displayName: 'UI Root'})
+    public uiRoot: Component|null = null;
+    @property({type: Component, tooltip: 'Content 的 UI 层级容器', displayName: 'Content UI Container'})
+    public contentUIContainer: Component|null = null;
+    @property({type: Component, tooltip: 'Popup 的 UI 层级容器', displayName: 'Popup UI Container'})
+    public popupUIContainer: Component|null = null;
+    @property({type: Component, tooltip: 'Guide 的 UI 层级容器', displayName: 'Guide UI Container'})
+    public guideUIContainer: Component|null = null;
+    @property({type: Component, tooltip: 'Top 的 UI 层级容器', displayName: 'Top UI Container'})
+    public topUIContainer: Component|null = null;
+
     @property({type: CCString, tooltip: '游戏 View Prefab 所在路径', displayName: 'View Prefab Directory'})
     public viewPrefabDirectory: string = '';
 
     private _managers: BaseManager[] = [];
+    private _controllers: BaseController[] = [];
     private static _instance: GameManager|null = null;
 
     public static sharedInstance() {
@@ -29,6 +43,7 @@ export class GameManager extends Component {
         GameManager._instance = this;
 
         this._initAllManagers();
+        this._initAllControllers();
     }
 
     /**
@@ -41,9 +56,11 @@ export class GameManager extends Component {
     }
 
     _initSingleManager<T extends BaseManager>(clazz: Constructor<T>) {
-        const mgr = new clazz();
-        mgr.init();
-        this._managers.push(mgr);
+        if (clazz) {
+            const mgr = new clazz();
+            mgr.init();
+            this._managers.push(mgr);
+        }
     }
 
     getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
@@ -55,5 +72,39 @@ export class GameManager extends Component {
             }
         }
         return null;
+    }
+
+    _initAllControllers() {
+
+    }
+
+    _initSingleController<T extends BaseController>(ctrClazz: Constructor<T>) {
+        if (ctrClazz) {
+            const ctr = new ctrClazz();
+            ctr.init();
+            this._controllers.push(ctr);
+        }
+    }
+
+    getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
+        if (ctrClazz) {
+            for (const controller of this._controllers) {
+                if (controller.constructor === ctrClazz) {
+                    return controller as T;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 启动游戏主逻辑
+     *
+     * @memberof GameManager
+     */
+    start() {
+        for (const controller of this._controllers) {
+            controller.gameStart();
+        }
     }
 }
