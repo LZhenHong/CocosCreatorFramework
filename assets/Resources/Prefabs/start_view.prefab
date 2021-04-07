@@ -1314,7 +1314,7 @@
     "fileId": "02NsaBtQFGg5aVwTGGhxZl"
   },
   {
-    "__type__": "ca6f3xif2JPp5jIGyzn2wLG",
+    "__type__": "b2156kYw8JHILHh3lS7EmPF",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1324,19 +1324,19 @@
     "__prefab": {
       "__id__": 61
     },
-    "gameObjects": [
+    "nodes": [
       {
-        "__id__": 26
+        "__id__": 19
       },
       {
-        "__id__": 42
+        "__id__": 35
       }
     ],
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "7fwKV7BhhIB6v9whLpnEu1"
+    "fileId": "45vGYlhPdIWb+XR9Eg31c1"
   },
   {
     "__type__": "cc.PrefabInfo",

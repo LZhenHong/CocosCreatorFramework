@@ -1,7 +1,7 @@
-import { _decorator, Component, Animation, Button, js, Asset } from 'cc';
+import { _decorator, Node, Animation, Button, js, Asset, Constructor, Component, EditBox } from 'cc';
 import { GameManager } from '../GameManager';
 import { AssetHolder } from './AssetHolder';
-import { ViewHolder } from './ViewHolder';
+import { NodeHolder } from './NodeHolder';
 import { ViewOptions } from './ViewOptions';
 const { ccclass } = _decorator;
 
@@ -14,10 +14,10 @@ const { ccclass } = _decorator;
  */
 @ccclass('BaseView')
 export abstract class BaseView {
-    protected gameObject: Component|null = null;
+    protected node: Node|null = null;
     protected animation: Animation|null = null;
     protected viewOptions: ViewOptions|null = null;
-    protected viewHolder: ViewHolder|null = null;
+    protected nodeHolder: NodeHolder|null = null;
     protected assetHolder: AssetHolder|null = null;
 
     private _buttonEventListeners: Map<Button, Function> = new Map<Button, Function>();
@@ -28,15 +28,15 @@ export abstract class BaseView {
      * 只能被 ViewManager 调用
      *
      * @public
-     * @param {Component} component View 对象
+     * @param {Node} node View 对象 Node
      * @memberof BaseView
      */
-    public vm_init(component: Component) {
-        this.gameObject = component;
-        this.animation = this.gameObject.getComponent(Animation);
-        this.viewHolder = this.gameObject.getComponent(ViewHolder);
-        this.assetHolder = this.gameObject.getComponent(AssetHolder);
-        this.viewOptions = this.gameObject.getComponent(ViewOptions);
+    public vm_init(node: Node) {
+        this.node = node;
+        this.animation = this.node.getComponent(Animation);
+        this.nodeHolder = this.node.getComponent(NodeHolder);
+        this.assetHolder = this.node.getComponent(AssetHolder);
+        this.viewOptions = this.node.getComponent(ViewOptions);
         this._buttonEventListeners.clear();
 
         this._clazzNameToViewPrefab();
@@ -84,17 +84,17 @@ export abstract class BaseView {
     }
 
     /**
-     * 获取 ViewHolder 的引用
+     * 获取 NodeHolder 引用的组件
      *
      * @protected
-     * @template T Component 引用类型
+     * @template T Component 组件类型
      * @param {string} name 引用的名称
      * @returns
      * @memberof BaseView
      */
-    protected getGameObjectWithName<T extends Component>(name: string) {
-        if (this.viewHolder) {
-            return this.viewHolder.getGameObjectWithName<T>(name);
+    protected getComponentWithName<T extends Component>(name: string, componentClazz: Constructor<T>) {
+        if (this.nodeHolder) {
+            return this.nodeHolder.getComponentWithName(name, componentClazz);
         }
         return null;
     }
@@ -144,6 +144,40 @@ export abstract class BaseView {
         btn.node.off(Button.EventType.CLICK, callback, this);
         this._buttonEventListeners.delete(btn);
     }
+
+    // #region Editbox 回调
+    protected addEditDidBeganListener(editBox: EditBox|null, callback: Function) {
+        if (!editBox) {
+            return;
+        }
+
+        editBox.node.on('editing-did-began', callback, this);
+    }
+    
+    protected addEditDidEndedListener(editBox: EditBox|null, callback: Function) {
+        if (!editBox) {
+            return;
+        }
+
+        editBox.node.on('editing-did-ended', callback, this);
+    }
+    
+    protected addEditTextDidChangeListener(editBox: EditBox|null, callback: Function) {
+        if (!editBox) {
+            return;
+        }
+
+        editBox.node.on('text-changed', callback, this);
+    }
+
+    protected addEditDidReturnListener(editBox: EditBox|null, callback: Function) {
+        if (!editBox) {
+            return;
+        }
+
+        editBox.node.on('editing-return', callback, this);
+    }
+    // #endregion
 
     public show() {
         this.onOpen();

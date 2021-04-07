@@ -91,4 +91,9 @@ Just a Cocos Creator Game.
 3. [对齐策略](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/widget-align.html)
 4. [Label 排版模式（Overflow）](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/label-layout.html#%E6%8E%92%E7%89%88%E6%A8%A1%E5%BC%8F%EF%BC%88overflow%EF%BC%89)
 5. [自动布局容器](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/auto-layout.html)
-6. 
+
+### UI 基础组件
+
+1. [Canvas（画布）组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/canvas.html)
+2. [Widget 组件对节点位置、尺寸的限制](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/widget.html#%E5%AF%B9%E8%8A%82%E7%82%B9%E4%BD%8D%E7%BD%AE%E3%80%81%E5%B0%BA%E5%AF%B8%E7%9A%84%E9%99%90%E5%88%B6)
+3. [Layout 组件详细说明](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/layout.html#%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E)
