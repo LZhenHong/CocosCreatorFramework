@@ -1,6 +1,6 @@
-import { _decorator, Component, Node, Button } from 'cc';
+import { _decorator, Button } from 'cc';
 import { BaseView } from '../Framework/View/BaseView';
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('StartView')
 export class StartView extends BaseView {

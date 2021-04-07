@@ -90,3 +90,5 @@ Just a Cocos Creator Game.
 2. [多分辨率适配方案](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/multi-resolution.html)
 3. [对齐策略](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/widget-align.html)
 4. [Label 排版模式（Overflow）](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/label-layout.html#%E6%8E%92%E7%89%88%E6%A8%A1%E5%BC%8F%EF%BC%88overflow%EF%BC%89)
+5. [自动布局容器](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/auto-layout.html)
+6. 
