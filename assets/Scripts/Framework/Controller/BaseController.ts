@@ -37,26 +37,6 @@ export abstract class BaseController {
         this.onGameStart();
     }
 
-    /**
-     * 初始化
-     * 只能被 ViewManager 调用
-     *
-     * @memberof BaseController
-     */
-    public vm_init() {
-
-    }
-
-    /**
-     * 销毁
-     * 只能被 ViewManager 调用
-     *
-     * @memberof BaseController
-     */
-    public vm_destroy() {
-
-    }
-
     // #region 子类回调
     protected abstract onInit(): void;
     protected abstract onDestroy(): void;

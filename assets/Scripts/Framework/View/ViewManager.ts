@@ -1,7 +1,10 @@
-import Singleton from "../Utility/Singleton";
+import { BaseManager } from "../Utility/BaseManager";
 
-export class ViewManager extends Singleton {
-    
+export class ViewManager extends BaseManager {
+
+    protected onInit(): void {}
+    protected onDestroy(): void {}
+
     public showView() {
 
     }

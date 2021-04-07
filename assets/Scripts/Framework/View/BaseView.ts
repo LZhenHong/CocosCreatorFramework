@@ -1,5 +1,6 @@
 import { _decorator, Node, Animation, Button, js, Asset, Constructor, Component, EditBox } from 'cc';
 import { GameManager } from '../GameManager';
+import { GameUtility } from '../Utility/GameUtility';
 import { AssetHolder } from './AssetHolder';
 import { NodeHolder } from './NodeHolder';
 import { ViewOptions } from './ViewOptions';
@@ -22,7 +23,11 @@ export abstract class BaseView {
 
     private _buttonEventListeners: Map<Button, Function> = new Map<Button, Function>();
     private _viewPrefabName: string = '';
-    
+
+    constructor() {
+        this._clazzNameToViewPrefab();
+    }
+
     /**
      * 初始化 View
      * 只能被 ViewManager 调用
@@ -39,28 +44,12 @@ export abstract class BaseView {
         this.viewOptions = this.node.getComponent(ViewOptions);
         this._buttonEventListeners.clear();
 
-        this._clazzNameToViewPrefab();
-
         this.onInit();
     }
 
     private _clazzNameToViewPrefab() {
         var clazzName = js.getClassName(this);
-        const re = /[A-Z]/;
-        var index = clazzName.search(re);
-        while (index !== -1) {
-            const firstStr = clazzName.substring(0, index);
-            var lastStr = clazzName.substring(index);
-            const firstChar = lastStr.charAt(0).toLocaleLowerCase();
-            lastStr = '_' + firstChar + lastStr.substring(1);
-            clazzName = firstStr.concat(lastStr);
-            index = clazzName.search(re);
-        };
-
-        if (clazzName.startsWith('_')) {
-            clazzName = clazzName.substring(1);
-        }
-        this._viewPrefabName = clazzName;
+        this._viewPrefabName = GameUtility.camelCaseToUnderScore(clazzName);
     }
 
     public viewPrefabPath() {
@@ -127,7 +116,7 @@ export abstract class BaseView {
         if (!btn) {
             return;
         }
-        
+
         btn.node.on(Button.EventType.CLICK, callback, this);
         this._buttonEventListeners.set(btn, callback);
     }
@@ -144,40 +133,6 @@ export abstract class BaseView {
         btn.node.off(Button.EventType.CLICK, callback, this);
         this._buttonEventListeners.delete(btn);
     }
-
-    // #region Editbox 回调
-    protected addEditDidBeganListener(editBox: EditBox|null, callback: Function) {
-        if (!editBox) {
-            return;
-        }
-
-        editBox.node.on('editing-did-began', callback, this);
-    }
-    
-    protected addEditDidEndedListener(editBox: EditBox|null, callback: Function) {
-        if (!editBox) {
-            return;
-        }
-
-        editBox.node.on('editing-did-ended', callback, this);
-    }
-    
-    protected addEditTextDidChangeListener(editBox: EditBox|null, callback: Function) {
-        if (!editBox) {
-            return;
-        }
-
-        editBox.node.on('text-changed', callback, this);
-    }
-
-    protected addEditDidReturnListener(editBox: EditBox|null, callback: Function) {
-        if (!editBox) {
-            return;
-        }
-
-        editBox.node.on('editing-return', callback, this);
-    }
-    // #endregion
 
     public show() {
         this.onOpen();

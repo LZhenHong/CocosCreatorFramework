@@ -8,6 +8,7 @@ Just a Cocos Creator Game.
 2. [TypeScript 入门教程](https://ts.xcatliu.com/introduction/what-is-typescript.html)
 3. [TypeScript 中文网](https://www.tslang.cn/)
 4. [TypeScript 中文手册](https://typescript.bootcss.com/)
+5. [从 JavaScript 到 TypeScript](https://tasaid.com/Blog/20171011231943.html?sgs=sf)
 
 ## Cocos Creator
 
@@ -97,3 +98,5 @@ Just a Cocos Creator Game.
 1. [Canvas（画布）组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/canvas.html)
 2. [Widget 组件对节点位置、尺寸的限制](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/widget.html#%E5%AF%B9%E8%8A%82%E7%82%B9%E4%BD%8D%E7%BD%AE%E3%80%81%E5%B0%BA%E5%AF%B8%E7%9A%84%E9%99%90%E5%88%B6)
 3. [Layout 组件详细说明](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/layout.html#%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E)
+4. [ScrollView 组件详细说明](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/scrollview.html#%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E)
+

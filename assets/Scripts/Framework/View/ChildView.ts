@@ -15,5 +15,5 @@ export abstract class ChildView extends BaseView {
     public viewPrefabPath(): string {
         throw new Error('Child View should not call -viewPrefabPath method.');
     }
-    
+
 }

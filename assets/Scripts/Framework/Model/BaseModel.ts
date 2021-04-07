@@ -1,4 +1,4 @@
-import { _decorator } from 'cc';
+import { _decorator, Component } from 'cc';
 const { ccclass } = _decorator;
 
 /**
@@ -9,6 +9,6 @@ const { ccclass } = _decorator;
  * @class BaseModel
  */
 @ccclass('BaseModel')
-export abstract class BaseModel {
-    
+export abstract class BaseModel extends Component {
+
 }
