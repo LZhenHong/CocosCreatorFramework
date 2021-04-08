@@ -1,4 +1,5 @@
-import { _decorator, Component, Canvas, Camera, Constructor, CCString } from 'cc';
+import { _decorator, Component, Canvas, Camera, Constructor } from 'cc';
+import { DEV } from 'cc/env';
 import { BaseController } from './Controller/BaseController';
 import { BaseManager } from './Utility/BaseManager';
 const { ccclass, property } = _decorator;

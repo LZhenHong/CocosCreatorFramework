@@ -117,3 +117,7 @@ Just a Cocos Creator Game.
 4. [相机](https://docs.cocos.com/creator/3.0/manual/zh/editor/components/camera-component.html)
 5. [Billboard 组件](https://docs.cocos.com/creator/3.0/manual/zh/particle-system/billboard-component.html)
 6. [Line 组件](https://docs.cocos.com/creator/3.0/manual/zh/particle-system/line-component.html)
+
+### 脚本
+
+1. [语言支持](https://docs.cocos.com/creator/3.0/manual/zh/scripting/language-support.html)
