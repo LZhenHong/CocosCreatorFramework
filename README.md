@@ -121,3 +121,5 @@ Just a Cocos Creator Game.
 ### 脚本
 
 1. [语言支持](https://docs.cocos.com/creator/3.0/manual/zh/scripting/language-support.html)
+2. [属性和构造函数](https://docs.cocos.com/creator/3.0/manual/zh/scripting/ccclass.html#%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0)
+3. [serializable 参数](https://docs.cocos.com/creator/3.0/manual/zh/scripting/ccclass.html#serializable-%E5%8F%82%E6%95%B0)
