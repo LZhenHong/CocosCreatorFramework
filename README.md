@@ -108,3 +108,12 @@ Just a Cocos Creator Game.
 11. [VideoPlayer 组件事件回调参数](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/videoplayer.html#%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%8F%82%E6%95%B0)
 12. [如何实现 UI 在 VideoPlayer 上渲染](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/videoplayer.html#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0-ui-%E5%9C%A8-videoplayer-%E4%B8%8A%E6%B8%B2%E6%9F%93)
 13. [SafeArea 组件参考](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/editor/safearea.html)
+
+### 其他组件
+
+1. [MeshRenderer 组件参考](https://docs.cocos.com/creator/3.0/manual/zh/engine/renderable/model-component.html)
+2. [模型分组渲染](https://docs.cocos.com/creator/3.0/manual/zh/engine/renderable/model-component.html#%E6%A8%A1%E5%9E%8B%E5%88%86%E7%BB%84%E6%B8%B2%E6%9F%93)
+3. [静态合批](https://docs.cocos.com/creator/3.0/manual/zh/engine/renderable/model-component.html#%E9%9D%99%E6%80%81%E5%90%88%E6%89%B9)
+4. [相机](https://docs.cocos.com/creator/3.0/manual/zh/editor/components/camera-component.html)
+5. [Billboard 组件](https://docs.cocos.com/creator/3.0/manual/zh/particle-system/billboard-component.html)
+6. [Line 组件](https://docs.cocos.com/creator/3.0/manual/zh/particle-system/line-component.html)
