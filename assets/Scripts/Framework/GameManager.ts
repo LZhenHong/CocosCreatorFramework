@@ -28,7 +28,7 @@ export class GameManager extends Component {
     @property({type: Component, tooltip: 'Top 的 UI 层级容器', displayName: 'Top UI Container'})
     public topUIContainer: Component|null = null;
 
-    @property({type: CCString, tooltip: '游戏 View Prefab 所在路径', displayName: 'View Prefab Directory'})
+    @property({tooltip: '游戏 View Prefab 所在路径', displayName: 'View Prefab Directory'})
     public viewPrefabDirectory: string = '';
 
     private _managers: BaseManager[] = [];
