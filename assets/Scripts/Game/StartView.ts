@@ -7,7 +7,7 @@ export class StartView extends BaseView {
     private _playButton: Button|null = null;
     private _settingButton: Button|null = null;
 
-    onInit() {
+    protected onInit() {
         this._playButton = this.getComponentWithName('play_button', Button);
         this.addClickEventListener(this._playButton, this.onPlayButtonHandle);
 
@@ -15,10 +15,13 @@ export class StartView extends BaseView {
         this.addClickEventListener(this._settingButton, this.onSettingButtonHandle);
     }
 
-    onOpen() {}
-    onClose() {}
+    protected onOpen() {}
+    protected onClose() {}
 
-    onDestroy() {}
+    protected onDestroy() {}
+
+    protected onActive() {}
+    protected onInactive() {}
 
     onPlayButtonHandle() {
         console.log("On Play Button Handle");

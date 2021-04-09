@@ -19,6 +19,13 @@ export abstract class BaseViewController<T extends BaseView> extends BaseControl
         this._createView();
     }
 
+    /**
+     * 创建绑定的 View 类
+     * @warning 这里会自动根据 Controller 的命名来匹配对应的 View，所以 Controller 和 View 的命名是有规则的
+     * @example ExampleViewController 对应的 View 就是 ExampleView
+     * @private
+     * @memberof BaseViewController
+     */
     private _createView() {
         const clazzName = js.getClassName(this);
         this._viewClazzName = clazzName.replace('Controller', '');
@@ -36,15 +43,34 @@ export abstract class BaseViewController<T extends BaseView> extends BaseControl
 
     }
 
+    /**
+     * 显示绑定的 View 节点
+     *
+     * @memberof BaseViewController
+     */
     showView() {
         if (this.view) {
             this.view.show();
         }
     }
 
+    /**
+     * 隐藏绑定的 View 节点
+     *
+     * @memberof BaseViewController
+     */
     hideView() {
         if (this.view) {
             this.view.hide();
         }
+    }
+
+    /**
+     * 从节点树中销毁 View 节点
+     *
+     * @memberof BaseViewController
+     */
+    destroyView() {
+        this.hideView();
     }
 }

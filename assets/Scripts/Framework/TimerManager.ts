@@ -1,7 +1,7 @@
 import { _decorator, Node } from 'cc';
 import { BaseManager } from './Utility/BaseManager';
 
-export class TimeManager extends BaseManager {
+export class TimerManager extends BaseManager {
     protected onInit() {}
 
     protected onDestroy() {}
