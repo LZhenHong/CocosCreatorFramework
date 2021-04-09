@@ -2,7 +2,7 @@ import { _decorator, macro, Component } from 'cc';
 import { BaseManager } from './Utility/BaseManager';
 
 /// 无效的 Timer handler
-export const TIMER_INVALID = 0;
+export const TIMER_HANDLER_INVALID = 0;
 
 export class TimerManager extends BaseManager {
     private _timer: Component|null = null;
@@ -71,7 +71,7 @@ export class TimerManager extends BaseManager {
     }
 
     /**
-     * 多次执行的回调，没有延迟
+     * 多次执行的回调
      *
      * @param {number} delayDuration 延迟时间
      * @param {number} repeatCount 多次执行的次数
@@ -180,7 +180,7 @@ export class TimerManager extends BaseManager {
      * @memberof TimerManager
      */
     public isTimerValid(handler: number): boolean {
-        return handler !== TIMER_INVALID;
+        return handler !== TIMER_HANDLER_INVALID;
     }
 
     /**
