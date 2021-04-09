@@ -15,9 +15,20 @@ export abstract class BaseManager {
         this.onDestroy();
     }
 
+    public update(deltaTime: number) {
+        this.onUpdate(deltaTime);
+    }
+
+    public lateUpdate(deltaTime: number) {
+        this.lateUpdate(deltaTime);
+    }
+
     public get hasInited() {
         return this._inited;
     }
+
+    protected abstract onUpdate(deltaTime: number): void;
+    protected abstract onLateUpdate(deltaTime: number): void;
 
     protected abstract onInit(): void;
     protected abstract onDestroy(): void;

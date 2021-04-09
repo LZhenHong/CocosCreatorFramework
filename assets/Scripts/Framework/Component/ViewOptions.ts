@@ -1,20 +1,7 @@
-import { _decorator, Component, Enum } from 'cc';
+import { _decorator, Component } from 'cc';
+import { ViewAnimationEnum, ViewLayerEnum } from '../Enum';
+
 const { ccclass, property, disallowMultiple } = _decorator;
-
-const _ViewAnimation = {
-    None: 0,
-    LeftSlide: 1,
-    Scale: 2
-};
-const ViewAnimationEnum = Enum(_ViewAnimation);
-
-const _ViewLayer = {
-    Content: 10,
-    Popup: 20,
-    Guide: 30,
-    Top: 40
-}
-const ViewLayerEnum = Enum(_ViewLayer);
 
 @ccclass('ViewOptions')
 @disallowMultiple

@@ -30,7 +30,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 50
+      "__id__": 49
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1032,9 +1032,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "__prefab": {
-      "__id__": 49
-    },
+    "__prefab": null,
     "uiCamera": {
       "__id__": 3
     },
@@ -1042,26 +1040,22 @@
       "__id__": 45
     },
     "uiRoot": {
-      "__id__": 38
+      "__id__": 13
     },
     "contentUIContainer": {
-      "__id__": 15
+      "__id__": 14
     },
     "popupUIContainer": {
-      "__id__": 21
+      "__id__": 20
     },
     "guideUIContainer": {
-      "__id__": 27
+      "__id__": 26
     },
     "topUIContainer": {
-      "__id__": 33
+      "__id__": 32
     },
     "viewPrefabDirectory": "Resources/Prefabs/",
     "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "262PkUfFBBlbdjZemd6E49"
   },
   {
     "__type__": "cc.PrefabInfo",

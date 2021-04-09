@@ -1,9 +1,10 @@
-import { _decorator, Node, Animation, Button, js, Asset, Constructor, Component, EditBox } from 'cc';
+import { _decorator, Node, Animation, Button, js, Asset, Constructor, Component } from 'cc';
 import { GameManager } from '../GameManager';
 import { GameUtility } from '../Utility/GameUtility';
-import { AssetHolder } from './AssetHolder';
-import { NodeHolder } from './NodeHolder';
-import { ViewOptions } from './ViewOptions';
+import { AssetHolder } from '../Component/AssetHolder';
+import { NodeHolder } from '../Component/NodeHolder';
+import { ViewOptions } from '../Component/ViewOptions';
+import { ActiveType } from '../Component/ActiveListener';
 const { ccclass } = _decorator;
 
 /**
@@ -44,14 +45,36 @@ export abstract class BaseView {
         this.viewOptions = this.node.getComponent(ViewOptions);
         this._buttonEventListeners.clear();
 
+        this._initRest();
+
         this.onInit();
     }
 
+    private _initRest() {
+        if (this.isValid()) {
+            this.node!.on(ActiveType.Active, this.onActive, this);
+            this.node!.on(ActiveType.Inactive, this.onInactive, this);
+        }
+    }
+
+    /**
+     * 从 View 的类名推导出 Prefab 的名称
+     * @warning Prefab 的命名一定要遵守这里的规则，否则不能正确将 View 绑定到对应的 Prefab 上
+     * @example ExampleView 对应的 Prefab 名称就是 example_view
+     * @private
+     * @memberof BaseView
+     */
     private _clazzNameToViewPrefab() {
         var clazzName = js.getClassName(this);
         this._viewPrefabName = GameUtility.camelCaseToUnderScore(clazzName);
     }
 
+    /**
+     * 获取 View 对应的 Prefab 路径
+     *
+     * @return {*}
+     * @memberof BaseView
+     */
     public viewPrefabPath() {
         const path = GameManager.sharedInstance()?.viewPrefabDirectory + this._viewPrefabName;
         return path;
@@ -68,6 +91,10 @@ export abstract class BaseView {
             btn.node.off(Button.EventType.CLICK, callback, this);
         });
         this._buttonEventListeners.clear();
+
+        /// 取消 Active 监听
+        this.node?.off(ActiveType.Active, this.onActive, this);
+        this.node?.off(ActiveType.Inactive, this.onInactive, this);
 
         this.onDestroy();
     }
@@ -134,11 +161,41 @@ export abstract class BaseView {
         this._buttonEventListeners.delete(btn);
     }
 
+    /**
+     * View 绑定的 Node 节点是否有效
+     *
+     * @return {*}
+     * @memberof BaseView
+     */
+    public isValid() {
+        return this.node !== null && this.node.isValid;
+    }
+
+    /**
+     * View 绑定的 Node 节点是否启用
+     *
+     * @return {*}
+     * @memberof BaseView
+     */
+    public isActive() {
+        return this.node !== null && this.node.activeInHierarchy;
+    }
+
+    protected onActive(): void {}
+
+    protected onInactive(): void {}
+
     public show() {
+        if (this.isValid()) {
+            this.node!.active = true;
+        }
         this.onOpen();
     }
 
     public hide() {
+        if (this.isValid()) {
+            this.node!.active = false;
+        }
         this.onClose();
     }
 

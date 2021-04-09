@@ -1,7 +1,18 @@
-import { _decorator, Component, Canvas, Camera, Constructor } from 'cc';
+import { _decorator, Component, Canvas, Camera, Constructor, Node, js, game } from 'cc';
 import { DEV } from 'cc/env';
-import { BaseController } from './Controller/BaseController';
+
+/// Manager
 import { BaseManager } from './Utility/BaseManager';
+import { AssetsManager } from './AssetsManager';
+import { AudioManager } from './AudioManager';
+import { NetworkManager } from './NetworkManager';
+import { TimerManager } from './TimerManager';
+import { PhysicsSystemManager } from './PhysicsSystemManager';
+
+/// Controller
+import { BaseController } from './Controller/BaseController';
+import { StartViewController } from '../Game/StartViewController';
+
 const { ccclass, property } = _decorator;
 
 /**
@@ -17,17 +28,18 @@ export class GameManager extends Component {
     public uiCamera: Camera|null = null;
     @property({type: Canvas, tooltip: '游戏 UI 画布', displayName: 'UI Canvas'})
     public uiCanvas: Canvas|null = null;
+
     /// 游戏 UI 层级容器
-    @property({type: Component, tooltip: 'UI 根节点', displayName: 'UI Root'})
-    public uiRoot: Component|null = null;
-    @property({type: Component, tooltip: 'Content 的 UI 层级容器', displayName: 'Content UI Container'})
-    public contentUIContainer: Component|null = null;
-    @property({type: Component, tooltip: 'Popup 的 UI 层级容器', displayName: 'Popup UI Container'})
-    public popupUIContainer: Component|null = null;
-    @property({type: Component, tooltip: 'Guide 的 UI 层级容器', displayName: 'Guide UI Container'})
-    public guideUIContainer: Component|null = null;
-    @property({type: Component, tooltip: 'Top 的 UI 层级容器', displayName: 'Top UI Container'})
-    public topUIContainer: Component|null = null;
+    @property({type: Node, tooltip: 'UI 根节点', displayName: 'UI Root'})
+    public uiRoot: Node|null = null;
+    @property({type: Node, tooltip: 'Content 的 UI 层级容器', displayName: 'Content UI Container'})
+    public contentUIContainer: Node|null = null;
+    @property({type: Node, tooltip: 'Popup 的 UI 层级容器', displayName: 'Popup UI Container'})
+    public popupUIContainer: Node|null = null;
+    @property({type: Node, tooltip: 'Guide 的 UI 层级容器', displayName: 'Guide UI Container'})
+    public guideUIContainer: Node|null = null;
+    @property({type: Node, tooltip: 'Top 的 UI 层级容器', displayName: 'Top UI Container'})
+    public topUIContainer: Node|null = null;
 
     @property({tooltip: '游戏 View Prefab 所在路径', displayName: 'View Prefab Directory'})
     public viewPrefabDirectory: string = '';
@@ -40,11 +52,39 @@ export class GameManager extends Component {
         return this._instance;
     }
 
-    onLoad() {
+    constructor() {
+        super();
+
         GameManager._instance = this;
+    }
+
+    onLoad() {
+        /// 设置常驻节点
+        game.addPersistRootNode(this.node);
 
         this._initAllManagers();
         this._initAllControllers();
+    }
+
+    onEnable() {
+        /// 设置计时器
+        this.getManager(TimerManager)?.setupTimer(this);
+    }
+
+    onDisable() {
+
+    }
+
+    update(deltaTime: number) {
+        this._managers.forEach((mgr) => {
+            mgr.update(deltaTime);
+        });
+    }
+
+    lateUpdate(deltaTime: number) {
+        this._managers.forEach((mgr) => {
+            mgr.lateUpdate(deltaTime);
+        });
     }
 
     /**
@@ -53,7 +93,16 @@ export class GameManager extends Component {
      * @memberof GameManager
      */
     _initAllManagers() {
-
+        /// 资源管理器
+        this._initSingleManager(AssetsManager);
+        /// 音频管理器
+        this._initSingleManager(AudioManager);
+        /// 网络管理器
+        this._initSingleManager(NetworkManager);
+        /// 计时管理器
+        this._initSingleManager(TimerManager);
+        /// 2D 物理引擎管理器
+        this._initSingleManager(PhysicsSystemManager);
     }
 
     _initSingleManager<T extends BaseManager>(clazz: Constructor<T>) {
@@ -64,6 +113,13 @@ export class GameManager extends Component {
         }
     }
 
+    static getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
+        if (this.sharedInstance()) {
+            return this.sharedInstance()!.getManager(mgrClazz);
+        }
+        return null;
+    }
+
     getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
         if (mgrClazz) {
             for (const manager of this._managers) {
@@ -72,11 +128,19 @@ export class GameManager extends Component {
                 }
             }
         }
+        if (DEV) {
+            console.error('Cant find manager: ' + js.getClassName(mgrClazz));
+        }
         return null;
     }
 
+    /**
+     * 初始化 Game 中所有 Controller
+     *
+     * @memberof GameManager
+     */
     _initAllControllers() {
-
+        this._initSingleController(StartViewController);
     }
 
     _initSingleController<T extends BaseController>(ctrClazz: Constructor<T>) {
@@ -87,6 +151,13 @@ export class GameManager extends Component {
         }
     }
 
+    static getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
+        if (this.sharedInstance()) {
+            return this.sharedInstance()!.getController(ctrClazz);
+        }
+        return null;
+    }
+
     getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
         if (ctrClazz) {
             for (const controller of this._controllers) {
@@ -94,6 +165,9 @@ export class GameManager extends Component {
                     return controller as T;
                 }
             }
+        }
+        if (DEV) {
+            console.error('Cant find controller: ' + js.getClassName(ctrClazz));
         }
         return null;
     }
@@ -103,7 +177,7 @@ export class GameManager extends Component {
      *
      * @memberof GameManager
      */
-    start() {
+    gameStart() {
         for (const controller of this._controllers) {
             controller.gameStart();
         }

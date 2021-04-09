@@ -2,15 +2,16 @@ import { BaseManager } from "../Utility/BaseManager";
 
 export class ViewManager extends BaseManager {
 
-    protected onInit(): void {}
-    protected onDestroy(): void {}
+    protected onInit() {}
 
-    public showView() {
+    protected onUpdate(deltaTime: number) {}
 
-    }
+    protected onLateUpdate(deltaTime: number) {}
 
-    public hideView() {
+    protected onDestroy() {}
 
-    }
+    public showView() {}
+
+    public hideView() {}
 
 }
