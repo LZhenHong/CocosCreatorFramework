@@ -20,9 +20,6 @@ export class StartView extends BaseView {
 
     protected onDestroy() {}
 
-    protected onActive() {}
-    protected onInactive() {}
-
     onPlayButtonHandle() {
         console.log("On Play Button Handle");
     }

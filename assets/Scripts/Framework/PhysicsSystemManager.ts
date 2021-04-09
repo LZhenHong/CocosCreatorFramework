@@ -36,6 +36,10 @@ export class PhysicsSystemManager extends BaseManager {
         this.disable();
     }
 
+    onUpdate(deltaTime: number) {}
+
+    onLateUpdate(deltaTime: number) {}
+
     onDestroy() {
 
     }

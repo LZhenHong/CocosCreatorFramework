@@ -121,8 +121,19 @@ Just a Cocos Creator Game.
 ### 脚本
 
 1. [语言支持](https://docs.cocos.com/creator/3.0/manual/zh/scripting/language-support.html)
+
 2. [节点状态和层级操作](https://docs.cocos.com/creator/3.0/manual/zh/scripting/basic-node-api.html#%E8%8A%82%E7%82%B9%E7%8A%B6%E6%80%81%E5%92%8C%E5%B1%82%E7%BA%A7%E6%93%8D%E4%BD%9C)
+
 3. [生命周期回调](https://docs.cocos.com/creator/3.0/manual/zh/scripting/life-cycle-callbacks.html)
+
 4. [创建和销毁节点](https://docs.cocos.com/creator/3.0/manual/zh/scripting/create-destroy.html)
+
 5. [加载和切换场景](https://docs.cocos.com/creator/3.0/manual/zh/scripting/scene-managing.html)
+
 6. [获取和加载资源](https://docs.cocos.com/creator/3.0/manual/zh/scripting/load-assets.html)
+
+7. [组件的创建和销毁](https://docs.cocos.com/creator/3.0/manual/zh/scripting/component.html#%E7%BB%84%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81)
+
+8. [派发事件](https://docs.cocos.com/creator/3.0/manual/zh/engine/event/event-emit.html#%E6%B4%BE%E5%8F%91%E4%BA%8B%E4%BB%B6)
+
+    

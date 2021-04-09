@@ -75,6 +75,18 @@ export class GameManager extends Component {
 
     }
 
+    update(deltaTime: number) {
+        this._managers.forEach((mgr) => {
+            mgr.update(deltaTime);
+        });
+    }
+
+    lateUpdate(deltaTime: number) {
+        this._managers.forEach((mgr) => {
+            mgr.lateUpdate(deltaTime);
+        });
+    }
+
     /**
      * 初始化 Game 中所有 Manager
      *

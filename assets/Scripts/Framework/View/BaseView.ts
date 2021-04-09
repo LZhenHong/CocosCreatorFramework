@@ -92,6 +92,10 @@ export abstract class BaseView {
         });
         this._buttonEventListeners.clear();
 
+        /// 取消 Active 监听
+        this.node?.off(ActiveType.Active, this.onActive, this);
+        this.node?.off(ActiveType.Inactive, this.onInactive, this);
+
         this.onDestroy();
     }
 
@@ -177,6 +181,10 @@ export abstract class BaseView {
         return this.node !== null && this.node.activeInHierarchy;
     }
 
+    protected onActive(): void {}
+
+    protected onInactive(): void {}
+
     public show() {
         if (this.isValid()) {
             this.node!.active = true;
@@ -197,8 +205,5 @@ export abstract class BaseView {
 
     protected abstract onOpen(): void;
     protected abstract onClose(): void;
-
-    protected abstract onActive(): void;
-    protected abstract onInactive(): void;
     // #endregion
 }

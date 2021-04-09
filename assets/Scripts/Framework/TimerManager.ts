@@ -217,6 +217,10 @@ export class TimerManager extends BaseManager {
         return false;
     }
 
+    protected onUpdate(deltaTime: number) {}
+
+    protected onLateUpdate(deltaTime: number) {}
+
     protected onDestroy() {
         this.cancelAll();
     }

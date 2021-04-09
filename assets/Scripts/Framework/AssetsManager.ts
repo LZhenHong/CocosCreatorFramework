@@ -1,15 +1,17 @@
 import { director, _decorator } from 'cc';
+import { Scene } from './Enum';
 import { BaseManager } from "./Utility/BaseManager";
 
-export enum Scene {
-    Main = 'main'
-}
 
 export type AssetLoadProgress = (progress: number, item: any) => void;
 export type AssetLoadComplete = (isSuccess: boolean, error?: Error) => void;
 
 export class AssetsManager extends BaseManager {
     protected onInit() {}
+
+    protected onUpdate(deltaTime: number) {}
+
+    protected onLateUpdate(deltaTime: number) {}
 
     protected onDestroy() {}
 
