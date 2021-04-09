@@ -144,7 +144,7 @@ export class TimerManager extends BaseManager {
      * @memberof TimerManager
      */
     public cancel(handler: number) {
-        if (this._timer && this._callbackMap.has(handler)) {
+        if (this._timer && this.isTimerRunning(handler)) {
             const func = this._callbackMap.get(handler);
             if (func !== undefined) {
                 this._timer.unschedule(func);
@@ -179,7 +179,7 @@ export class TimerManager extends BaseManager {
      * @return {boolean} 是否有效
      * @memberof TimerManager
      */
-    public isTimerValid(handler: number): boolean{
+    public isTimerValid(handler: number): boolean {
         return handler !== TIMER_INVALID;
     }
 
@@ -197,14 +197,14 @@ export class TimerManager extends BaseManager {
     }
 
     /**
-     * 立马执行回调
+     * 立马执行回调一次，然后取消回调
      *
      * @waring 如果是多次或者循环执行的回调，执行一次就退出，不会执行多次
      * @param {number} handler 回调句柄
      * @return {boolean} 是否成功执行回调
      * @memberof TimerManager
      */
-    public excuteRightNow(handler: number): boolean {
+    public excuteOnce(handler: number): boolean {
         if (this.isTimerRunning(handler)) {
             const func = this._callbackMap.get(handler);
             this.cancel(handler);
