@@ -67,7 +67,8 @@ export class GameManager extends Component {
     }
 
     onEnable() {
-
+        /// 设置计时器
+        this.getManager(TimerManager)?.setupTimer(this);
     }
 
     onDisable() {
@@ -100,6 +101,13 @@ export class GameManager extends Component {
         }
     }
 
+    static getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
+        if (this.sharedInstance()) {
+            return this.sharedInstance()!.getManager(mgrClazz);
+        }
+        return null;
+    }
+
     getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
         if (mgrClazz) {
             for (const manager of this._managers) {
@@ -129,6 +137,13 @@ export class GameManager extends Component {
             ctr.init();
             this._controllers.push(ctr);
         }
+    }
+
+    static getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
+        if (this.sharedInstance()) {
+            return this.sharedInstance()!.getController(ctrClazz);
+        }
+        return null;
     }
 
     getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
