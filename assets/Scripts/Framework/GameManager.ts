@@ -3,7 +3,7 @@ import { DEV } from 'cc/env';
 
 /// Manager
 import { BaseManager } from './Utility/BaseManager';
-import { AssetsManager } from './AssetsManager';
+import { AssetsManager } from './Asset/AssetsManager';
 import { AudioManager } from './AudioManager';
 import { NetworkManager } from './NetworkManager';
 import { TimerManager } from './TimerManager';

@@ -1,7 +1,7 @@
-import { director, _decorator } from 'cc';
-import { Scene } from './Enum';
-import { BaseManager } from "./Utility/BaseManager";
-
+import { director, _decorator, assetManager } from 'cc';
+import { DEV, EDITOR } from 'cc/env';
+import { Scene } from '../Enum';
+import { BaseManager } from "../Utility/BaseManager";
 
 export type AssetLoadProgress = (progress: number, item: any) => void;
 export type AssetLoadComplete = (isSuccess: boolean, error?: Error) => void;
@@ -32,5 +32,5 @@ export class AssetsManager extends BaseManager {
         });
     }
 
-    public loadScene(scene: Scene, callback: AssetLoadComplete) {}
+    public loadScene(scene: Scene, progress?: AssetLoadProgress, complete?: AssetLoadComplete) {}
 }

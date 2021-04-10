@@ -132,3 +132,8 @@ Just a Cocos Creator Game.
 10. [派发事件](https://docs.cocos.com/creator/3.0/manual/zh/engine/event/event-emit.html#%E6%B4%BE%E5%8F%91%E4%BA%8B%E4%BB%B6)
 11. [触摸事件的传递](https://docs.cocos.com/creator/3.0/manual/zh/engine/event/event-builtin.html#%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E9%80%92)
 12. [废弃 API](https://docs.cocos.com/creator/3.0/manual/zh/scripting/deprecated.html)
+
+### 资源
+
+1. [Library 中的资源](https://docs.cocos.com/creator/3.0/manual/zh/asset/asset-workflow.html#library-%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90)
+2. [Asset Manager 概述](https://docs.cocos.com/creator/3.0/manual/zh/asset/asset-manager.html#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90)
