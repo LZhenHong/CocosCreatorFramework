@@ -199,11 +199,38 @@ export abstract class BaseView {
         this.onClose();
     }
 
+    /**
+     * 暂停当前节点和子节点上所有的注册事件
+     *
+     * @memberof BaseView
+     */
+    public pause() {
+        if (this.isValid()) {
+            this.node!.pauseSystemEvents(true);
+        }
+        this.onPause();
+    }
+
+    /**
+     * 恢复当前节点和子节点上所有的注册事件
+     *
+     * @memberof BaseView
+     */
+    public resume() {
+        if (this.isValid()) {
+            this.node!.resumeSystemEvents(true);
+        }
+        this.onResume();
+    }
+
     // #region 子类实现
     protected abstract onInit(): void;
     protected abstract onDestroy(): void;
 
     protected abstract onOpen(): void;
     protected abstract onClose(): void;
+
+    protected abstract onPause(): void;
+    protected abstract onResume(): void;
     // #endregion
 }

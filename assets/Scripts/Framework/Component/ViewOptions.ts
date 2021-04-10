@@ -1,10 +1,11 @@
 import { _decorator, Component } from 'cc';
 import { ViewAnimationEnum, ViewLayerEnum } from '../Enum';
 
-const { ccclass, property, disallowMultiple } = _decorator;
+const { ccclass, property, disallowMultiple, menu } = _decorator;
 
 @ccclass('ViewOptions')
 @disallowMultiple
+@menu('Framework/ViewOptions')
 export class ViewOptions extends Component {
     @property({tooltip: "是否需要蒙板", displayName: "Show Mask"})
     public showMask: boolean = true;

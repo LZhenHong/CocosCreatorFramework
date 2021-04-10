@@ -1,5 +1,5 @@
 import { Component, EventHandler, _decorator } from 'cc';
-const { ccclass, property } = _decorator;
+const { ccclass, property, menu } = _decorator;
 
 export enum ActiveType {
     Active = 'active',
@@ -7,6 +7,7 @@ export enum ActiveType {
 }
 
 @ccclass('ActiveListener')
+@menu('Framework/ActiveListener')
 export class ActiveListener extends Component {
     @property({type: [EventHandler], tooltip: 'View active 的监听', displayName: 'Active Event Handlers'})
     public activeHandlers: (EventHandler|null)[] = [];

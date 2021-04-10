@@ -18,6 +18,9 @@ export class StartView extends BaseView {
     protected onOpen() {}
     protected onClose() {}
 
+    protected onPause() {}
+    protected onResume() {}
+
     protected onDestroy() {}
 
     onPlayButtonHandle() {

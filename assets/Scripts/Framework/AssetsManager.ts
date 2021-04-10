@@ -9,10 +9,6 @@ export type AssetLoadComplete = (isSuccess: boolean, error?: Error) => void;
 export class AssetsManager extends BaseManager {
     protected onInit() {}
 
-    protected onUpdate(deltaTime: number) {}
-
-    protected onLateUpdate(deltaTime: number) {}
-
     protected onDestroy() {}
 
     /**

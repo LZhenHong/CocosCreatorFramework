@@ -1,4 +1,4 @@
-import { _decorator, Component, Canvas, Camera, Constructor, Node, js, game } from 'cc';
+import { _decorator, Component, Canvas, Camera, Constructor, Node, js, game, macro } from 'cc';
 import { DEV } from 'cc/env';
 
 /// Manager
@@ -44,6 +44,9 @@ export class GameManager extends Component {
     @property({tooltip: '游戏 View Prefab 所在路径', displayName: 'View Prefab Directory'})
     public viewPrefabDirectory: string = '';
 
+    @property({tooltip: '是否开启多点触摸', displayName: 'Enable Mutiple Touch'})
+    public enableMutipleTouch = true;
+
     private _managers: BaseManager[] = [];
     private _controllers: BaseController[] = [];
     private static _instance: GameManager|null = null;
@@ -61,6 +64,8 @@ export class GameManager extends Component {
     onLoad() {
         /// 设置常驻节点
         game.addPersistRootNode(this.node);
+        /// 是否多点触摸开关
+        macro.ENABLE_MULTI_TOUCH = this.enableMutipleTouch;
 
         this._initAllManagers();
         this._initAllControllers();

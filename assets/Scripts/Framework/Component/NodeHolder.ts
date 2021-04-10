@@ -1,10 +1,11 @@
 import { _decorator, Component, Node, Constructor } from 'cc';
-const { ccclass, property, disallowMultiple } = _decorator;
+const { ccclass, property, disallowMultiple, menu } = _decorator;
 
 @ccclass('NodeHolder')
 @disallowMultiple
+@menu('Framework/NodeHolder')
 export class NodeHolder extends Component {
-    @property({type: [Node], tooltip: "需要访问的节点", displayName: "Node Refrences"})
+    @property({type: [Node], tooltip: "需要访问的节点", displayName: "Node References"})
     public nodes: (Node|null)[] = [];
 
     private _nodeMap: Map<string, Node> = new Map();

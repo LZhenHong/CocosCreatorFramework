@@ -1,10 +1,11 @@
 import { _decorator, Component, Asset } from 'cc';
-const { ccclass, property, disallowMultiple } = _decorator;
+const { ccclass, property, disallowMultiple, menu } = _decorator;
 
 @ccclass('AssetHolder')
 @disallowMultiple
+@menu('Framework/AssetHolder')
 export class AssetHolder extends Component {
-    @property({type: [Asset], tooltip: "需要访问的资源", displayName: "Asset Refrences"})
+    @property({type: [Asset], tooltip: "需要访问的资源", displayName: "Asset References"})
     public assets: (Asset|null)[] = [];
 
     private _assetMap: Map<string, Asset> = new Map();
