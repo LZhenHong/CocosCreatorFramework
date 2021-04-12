@@ -137,3 +137,5 @@ Just a Cocos Creator Game.
 
 1. [Library 中的资源](https://docs.cocos.com/creator/3.0/manual/zh/asset/asset-workflow.html#library-%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90)
 2. [Asset Manager 概述](https://docs.cocos.com/creator/3.0/manual/zh/asset/asset-manager.html#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90)
+3. [加载资源](https://docs.cocos.com/creator/3.0/manual/zh/asset/dynamic-load-resources.html)
+4. [Asset Bundle 介绍](https://docs.cocos.com/creator/3.0/manual/zh/asset/bundle.html)
