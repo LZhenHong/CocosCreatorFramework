@@ -139,3 +139,13 @@ Just a Cocos Creator Game.
 2. [Asset Manager 概述](https://docs.cocos.com/creator/3.0/manual/zh/asset/asset-manager.html#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90)
 3. [加载资源](https://docs.cocos.com/creator/3.0/manual/zh/asset/dynamic-load-resources.html)
 4. [Asset Bundle 介绍](https://docs.cocos.com/creator/3.0/manual/zh/asset/bundle.html)
+5. [Asset Bundle 配置方法](https://docs.cocos.com/creator/3.0/manual/zh/asset/bundle.html#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)
+6. [Asset Bundle 的构建](https://docs.cocos.com/creator/3.0/manual/zh/asset/bundle.html#asset-bundle-%E7%9A%84%E6%9E%84%E5%BB%BA)
+7. [加载与预加载](https://docs.cocos.com/creator/3.0/manual/zh/asset/preload-load.html)
+8. [缓存管理器](https://docs.cocos.com/creator/3.0/manual/zh/asset/cache-manager.html)
+9. [容器内包含对象是 RenderTexture 的使用方式](https://docs.cocos.com/creator/3.0/manual/zh/asset/sprite-frame.html#%E5%AE%B9%E5%99%A8%E5%86%85%E5%8C%85%E5%90%AB%E5%AF%B9%E8%B1%A1%E6%98%AF-rendertexture-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)
+10. [渲染纹理资源（RenderTexture）](https://docs.cocos.com/creator/3.0/manual/zh/asset/render-texture.html)
+11. [Sprite 组件剪裁相关设置详解](https://docs.cocos.com/creator/3.0/manual/zh/ui-system/components/engine/trim.html#sprite-%E7%BB%84%E4%BB%B6%E5%89%AA%E8%A3%81%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE%E8%AF%A6%E8%A7%A3)
+12. [压缩纹理](https://docs.cocos.com/creator/3.0/manual/zh/asset/compress-texture.html)
+13. [Cocos Creator 新资源管理系统剖析](https://www.cnblogs.com/ybgame/p/14260152.html)
+
