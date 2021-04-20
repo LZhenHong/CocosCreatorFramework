@@ -1054,7 +1054,8 @@
     "topUIContainer": {
       "__id__": 32
     },
-    "viewPrefabDirectory": "Resources/Prefabs/",
+    "viewPrefabDirectory": "Prefabs/",
+    "enableMutipleTouch": true,
     "_id": ""
   },
   {
