@@ -1,36 +1,17 @@
-import { director, _decorator, assetManager } from 'cc';
+import { director, _decorator, assetManager, resources, Asset } from 'cc';
 import { DEV, EDITOR } from 'cc/env';
 import { Scene } from '../Enum';
 import { BaseManager } from "../Utility/BaseManager";
 
-export type AssetLoadProgress = (progress: number, item: any) => void;
-export type AssetLoadComplete = (isSuccess: boolean, error?: Error) => void;
+export type AssetLoadProgress = (progress: number) => void;
+export type AssetLoadComplete<T extends Asset> = (isSuccess: boolean, asset: T, error?: Error) => void;
 
 export class AssetsManager extends BaseManager {
     protected onInit() {}
 
     protected onDestroy() {}
 
-    /**
-     * 预加载 Scene，加载完成后不会自动切换 Scene
-     *
-     * @param {Scene} scene Scene 名称，枚举类型
-     * @param {AssetLoadComplete} [complete] 预加载完成后的回调
-     * @memberof AssetsManager
-     */
-    public preloadScene(scene: Scene, progress?: AssetLoadProgress, complete?: AssetLoadComplete) {
-        director.preloadScene(scene, (completedCount, totalCount, item) => {
-            var percent = completedCount / totalCount;
-            percent = Math.floor(percent * 100);
-            progress !== null && progress!(percent, item);
-        }, (error, sceneAsset) => {
-            if (error !== null && sceneAsset === null) {
-                complete !== null && complete!(false, error);
-            } else {
-                complete !== null && complete!(true);
-            }
-        });
-    }
+    public loadAssetFromBundle<T extends Asset>(assetPath: string, bundle: string, assetLoadComplete: AssetLoadComplete<T>, assetLoadProgress: AssetLoadProgress) {
 
-    public loadScene(scene: Scene, progress?: AssetLoadProgress, complete?: AssetLoadComplete) {}
+    }
 }
