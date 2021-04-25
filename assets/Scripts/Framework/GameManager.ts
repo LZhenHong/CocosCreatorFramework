@@ -47,6 +47,9 @@ export class GameManager extends Component {
     @property({tooltip: '是否开启多点触摸', displayName: 'Enable Mutiple Touch'})
     public enableMutipleTouch = true;
 
+    @property({tooltip: '设置游戏帧率', displayName: 'Game Frame Rate'})
+    public gameFrameRate = 60;
+
     private _managers: BaseManager[] = [];
     private _controllers: BaseController[] = [];
     private static _instance: GameManager|null = null;
@@ -64,6 +67,8 @@ export class GameManager extends Component {
     onLoad() {
         /// 设置常驻节点
         game.addPersistRootNode(this.node);
+        /// 设置游戏帧率
+        game.setFrameRate(this.gameFrameRate);
         /// 是否多点触摸开关
         macro.ENABLE_MULTI_TOUCH = this.enableMutipleTouch;
 
