@@ -10,6 +10,79 @@ Just a Cocos Creator Game.
 4. [TypeScript 中文手册](https://typescript.bootcss.com/)
 5. [从 JavaScript 到 TypeScript](https://tasaid.com/Blog/20171011231943.html?sgs=sf)
 
+### 函数可选参数
+
+```typescript
+function buildName(firstName: string, lastName?: string) {
+    if (lastName) {
+        return firstName + " " + lastName;
+    } else {
+        return firstName;
+    }
+}
+
+let result1 = buildName("Bob");  // 正确
+let result2 = buildName("Bob", "Adams", "Sr.");  // 错误，参数太多了
+let result3 = buildName("Bob", "Adams");  // 正确
+```
+
+可选参数必须跟在必需参数后面。 如果上例我们想让 firstName 是可选的，lastName 必选，那么就要调整它们的位置，把 firstName 放在后面。如果都是可选参数就没关系。
+
+### 函数默认参数
+
+```typescript
+function calculate_discount(price:number,rate:number = 0.50) {
+    var discount = price * rate;
+    console.log("计算结果: ", discount);
+}
+calculate_discount(1000);
+calculate_discount(1000, 0.30);
+```
+
+注意：参数不能同时设置为可选和默认。
+
+### 函数剩余参数
+
+```typescript
+function buildName(firstName: string, ...restOfName: string[]) {
+    return firstName + " " + restOfName.join(" ");
+}
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+```
+
+函数的最后一个命名参数 restOfName 以 ... 为前缀，它将成为一个由剩余参数组成的数组，索引值从0（包括）到 restOfName.length（不包括）。
+
+### Lambda 函数
+
+Lambda 函数也称之为箭头函数。箭头函数表达式的语法比函数表达式更短。
+
+`([param1, parma2, …param n]) => statement;`
+
+### 接口和数组
+
+```typescript
+interface namelist {
+   [index:number]: string
+} 
+var list2: namelist = ["John", 1, "Bran"]; // 错误元素 1 不是 string 类型
+
+interface ages {
+   [index:string]: number
+}
+var agelist: ages;
+agelist["John"] = 15; // 正确
+```
+
+接口中我们可以将数组的索引值和元素设置为不同类型，索引值可以是数字或字符串。
+
+### 访问控制修饰符
+
+TypeScript 中，可以使用访问控制符来保护对类、变量、方法和构造方法的访问。TypeScript 支持 3 种不同的访问权限。
+
+- **public（默认）** : 公有，可以在任何地方被访问。
+- **protected** : 受保护，可以被其自身以及其子类和父类访问。
+- **private** : 私有，只能被其定义所在的类访问。
+
 ## Cocos Creator
 
 ### 构建流程
