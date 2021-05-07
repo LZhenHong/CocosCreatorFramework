@@ -27,9 +27,9 @@ export abstract class BaseViewController<T extends BaseView> extends BaseControl
      * @memberof BaseViewController
      */
     private _createView() {
-        const clazzName = js.getClassName(this);
+        let clazzName = js.getClassName(this);
         this._viewClazzName = clazzName.replace('Controller', '');
-        const viewClazz = js.getClassByName(this._viewClazzName);
+        let viewClazz = js.getClassByName(this._viewClazzName);
         this.view = new viewClazz() as T;
     }
 

@@ -65,7 +65,7 @@ export abstract class BaseView {
      * @memberof BaseView
      */
     private _clazzNameToViewPrefab() {
-        var clazzName = js.getClassName(this);
+        let clazzName = js.getClassName(this);
         this._viewPrefabName = GameUtility.camelCaseToUnderScore(clazzName);
     }
 
@@ -76,7 +76,7 @@ export abstract class BaseView {
      * @memberof BaseView
      */
     public viewPrefabPath() {
-        const path = GameManager.sharedInstance()?.viewPrefabDirectory + this._viewPrefabName;
+        let path = GameManager.sharedInstance()?.viewPrefabDirectory + this._viewPrefabName;
         return path;
     }
 

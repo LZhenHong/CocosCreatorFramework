@@ -17,11 +17,11 @@ export class NodeHolder extends Component {
     _mapNodes() {
         this._nodeMap.clear();
         if (this.nodes.length > 0) {
-            for (const node of this.nodes) {
+            for (let node of this.nodes) {
                 if (node === null) {
                     continue;
                 }
-                const name = node.name;
+                let name = node.name;
                 this._nodeMap.set(name, node);
             }
         }

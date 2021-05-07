@@ -117,7 +117,7 @@ export class GameManager extends Component {
 
     _initSingleManager<T extends BaseManager>(clazz: Constructor<T>) {
         if (clazz) {
-            const mgr = new clazz();
+            let mgr = new clazz();
             mgr.init();
             this._managers.push(mgr);
         }
@@ -132,7 +132,7 @@ export class GameManager extends Component {
 
     getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
         if (mgrClazz) {
-            for (const manager of this._managers) {
+            for (let manager of this._managers) {
                 if (manager.constructor === mgrClazz) {
                     return manager as T;
                 }
@@ -155,7 +155,7 @@ export class GameManager extends Component {
 
     _initSingleController<T extends BaseController>(ctrClazz: Constructor<T>) {
         if (ctrClazz) {
-            const ctr = new ctrClazz();
+            let ctr = new ctrClazz();
             ctr.init();
             this._controllers.push(ctr);
         }
@@ -170,7 +170,7 @@ export class GameManager extends Component {
 
     getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
         if (ctrClazz) {
-            for (const controller of this._controllers) {
+            for (let controller of this._controllers) {
                 if (controller.constructor === ctrClazz) {
                     return controller as T;
                 }
@@ -188,7 +188,7 @@ export class GameManager extends Component {
      * @memberof GameManager
      */
     gameStart() {
-        for (const controller of this._controllers) {
+        for (let controller of this._controllers) {
             controller.gameStart();
         }
     }

@@ -13,8 +13,8 @@ export class ActiveListener extends Component {
     public activeHandlers: (EventHandler|null)[] = [];
 
     private get _validActiveHandlers() {
-        var handlers: EventHandler[] = [];
-        for (const handler of this.activeHandlers) {
+        let handlers: EventHandler[] = [];
+        for (let handler of this.activeHandlers) {
             if (handler !== null) {
                 handlers.push(handler);
             }

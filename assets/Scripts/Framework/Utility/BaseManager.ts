@@ -20,7 +20,7 @@ export abstract class BaseManager {
     }
 
     public lateUpdate(deltaTime: number) {
-        this.lateUpdate(deltaTime);
+        this.onLateUpdate(deltaTime);
     }
 
     public get hasInited() {

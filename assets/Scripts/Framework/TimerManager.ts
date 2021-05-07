@@ -45,8 +45,8 @@ export class TimerManager extends BaseManager {
     public delayCall(delayDuration: number, callback: Function): number {
         delayDuration = Math.max(delayDuration, 0);
         if (this._timer) {
-            const handler = this._getNextHandler();
-            const func = () => {
+            let handler = this._getNextHandler();
+            let func = () => {
                 this._cancelInternal(handler);
                 callback();
             };
@@ -89,9 +89,9 @@ export class TimerManager extends BaseManager {
             /// 总共会调用 repeatCount + 1 次，在这里减掉一次
             repeatCount = Math.max(--repeatCount, 0);
 
-            const handler = this._getNextHandler();
-            var count = 0;
-            const func = () => {
+            let handler = this._getNextHandler();
+            let count = 0;
+            let func = () => {
                 ++count;
                 if (count > repeatCount) {
                     this._cancelInternal(handler);
@@ -129,7 +129,7 @@ export class TimerManager extends BaseManager {
     public loopCall(delayDuration: number, loopInterval: number, callback: Function): number {
         delayDuration = Math.max(delayDuration, 0);
         if (this._timer) {
-            const handler = this._getNextHandler();
+            let handler = this._getNextHandler();
             this._callbackMap.set(handler, callback);
             this._timer.schedule(callback, loopInterval, macro.REPEAT_FOREVER, delayDuration);
             return handler;
@@ -145,7 +145,7 @@ export class TimerManager extends BaseManager {
      */
     public cancel(handler: number) {
         if (this._timer && this.isTimerRunning(handler)) {
-            const func = this._callbackMap.get(handler);
+            let func = this._callbackMap.get(handler);
             if (func !== undefined) {
                 this._timer.unschedule(func);
             }
@@ -206,7 +206,7 @@ export class TimerManager extends BaseManager {
      */
     public excuteOnce(handler: number): boolean {
         if (this.isTimerRunning(handler)) {
-            const func = this._callbackMap.get(handler);
+            let func = this._callbackMap.get(handler);
             this.cancel(handler);
             if (func !== undefined) {
                 func();

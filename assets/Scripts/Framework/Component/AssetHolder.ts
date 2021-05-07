@@ -17,11 +17,11 @@ export class AssetHolder extends Component {
     _mapAssets() {
         this._assetMap.clear();
         if (this.assets.length > 0) {
-            for (const asset of this.assets) {
+            for (let asset of this.assets) {
                 if (asset === null) {
                     continue;
                 }
-                const name = asset.name;
+                let name = asset.name;
                 this._assetMap.set(name, asset);
             }
         }
