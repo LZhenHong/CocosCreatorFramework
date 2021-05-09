@@ -1,4 +1,4 @@
-import { director, _decorator, assetManager, resources, Asset } from 'cc';
+import { director, _decorator, assetManager, resources, Asset, AssetManager, Constructor } from 'cc';
 import { DEV, EDITOR } from 'cc/env';
 import { Scene } from '../Enum';
 import { BaseManager } from "../Utility/BaseManager";
@@ -11,7 +11,11 @@ export class AssetsManager extends BaseManager {
 
     protected onDestroy() {}
 
-    public loadAssetFromBundle<T extends Asset>(assetPath: string, bundle: string, assetLoadComplete: AssetLoadComplete<T>, assetLoadProgress: AssetLoadProgress) {
+    public loadAssetFromBundle<T extends Asset>(assetPath: string, asset: Constructor<T>, bundle: AssetManager.Bundle, assetLoadComplete: AssetLoadComplete<T>, assetLoadProgress: AssetLoadProgress) {
+        this.loadAssetsFromBundle([assetPath], asset, bundle, assetLoadComplete, assetLoadProgress);
+    }
+
+    public loadAssetsFromBundle<T extends Asset>(assetPaths: string[], asset: Constructor<T>, bundle: AssetManager.Bundle, assetLoadComplete: AssetLoadComplete<T>, assetLoadProgress: AssetLoadProgress) {
 
     }
 }
