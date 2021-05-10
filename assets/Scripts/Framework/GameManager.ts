@@ -76,9 +76,13 @@ export class GameManager extends Component {
         this._initAllControllers();
     }
 
-    onEnable() {
+    start() {
         /// 设置计时器
         this.getManager(TimerManager)?.setupTimer(this);
+    }
+
+    onEnable() {
+
     }
 
     onDisable() {

@@ -86,20 +86,52 @@ export class TimerManager extends BaseManager {
         }
 
         if (this._timer) {
-            /// 总共会调用 repeatCount + 1 次，在这里减掉一次
-            repeatCount = Math.max(--repeatCount, 0);
+            let handler = this.loopCallUntil(delayDuration, loopInterval, callback, function(count: number): boolean {
+                return count >= repeatCount;
+            });
+            return handler;
+        }
+        return 0;
+    }
 
+    /**
+     * 循环调用，直到某个条件满足就退出
+     * 无延迟
+     *
+     * @param {number} loopInterval 执行回调时间间隔
+     * @param {Function} callback 需要执行的回调
+     * @param {(count: number) => boolean} stopFunction 停下循环的判断条件
+     * @return {*}  {number} 回调句柄
+     * @memberof TimerManager
+     */
+    public loopCallUntilWithDelay(loopInterval: number, callback: Function, stopFunction: (count: number) => boolean): number {
+        return this.loopCallUntil(0, loopInterval, callback, stopFunction);
+    }
+
+    /**
+     * 循环调用，直到某个条件满足就退出
+     *
+     * @param {number} loopInterval 执行回调时间间隔
+     * @param {Function} callback 需要执行的回调
+     * @param {(count: number) => boolean} stopFunction 停下循环的判断条件
+     * @return {*}  {number} 回调句柄
+     * @memberof TimerManager
+     */
+    public loopCallUntil(delayDuration: number, loopInterval: number, callback: Function, stopFunction: (count: number) => boolean): number {
+        delayDuration = Math.max(delayDuration, 0.0001);
+        if (this._timer) {
             let handler = this._getNextHandler();
             let count = 0;
             let func = () => {
-                ++count;
-                if (count > repeatCount) {
-                    this._cancelInternal(handler);
+                if (stopFunction(count)) {
+                    this.cancel(handler);
+                    return;
                 }
                 callback();
+                ++count;
             };
             this._callbackMap.set(handler, func);
-            this._timer.schedule(func, loopInterval, repeatCount, delayDuration);
+            this._timer.schedule(func, loopInterval, macro.REPEAT_FOREVER, delayDuration);
             return handler;
         }
         return 0;
@@ -127,7 +159,7 @@ export class TimerManager extends BaseManager {
      * @memberof TimerManager
      */
     public loopCall(delayDuration: number, loopInterval: number, callback: Function): number {
-        delayDuration = Math.max(delayDuration, 0);
+        delayDuration = Math.max(delayDuration, 0.0001);
         if (this._timer) {
             let handler = this._getNextHandler();
             this._callbackMap.set(handler, callback);
