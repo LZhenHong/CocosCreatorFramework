@@ -1,0 +1,22 @@
+{
+  "game": {
+    "name": "",
+    "app_id": "",
+    "c_id": "0"
+  },
+  "appConfigMaps": [
+    {
+      "app_id": "",
+      "config_id": "25e846"
+    }
+  ],
+  "configs": [
+    {
+      "app_id": "",
+      "config_id": "25e846",
+      "config_name": "Default",
+      "config_remarks": "",
+      "services": []
+    }
+  ]
+}
