@@ -16,11 +16,11 @@ const { ccclass } = _decorator;
  */
 @ccclass('BaseView')
 export abstract class BaseView {
-    protected node: Node|null = null;
-    protected animation: Animation|null = null;
-    protected viewOptions: ViewOptions|null = null;
-    protected nodeHolder: NodeHolder|null = null;
-    protected assetHolder: AssetHolder|null = null;
+    protected node: Node | null = null;
+    protected animation: Animation | null = null;
+    protected viewOptions: ViewOptions | null = null;
+    protected nodeHolder: NodeHolder | null = null;
+    protected assetHolder: AssetHolder | null = null;
 
     private _buttonEventListeners: Map<Button, Function> = new Map<Button, Function>();
     private _viewPrefabName: string = '';
@@ -139,7 +139,7 @@ export abstract class BaseView {
      * @param {Function} callback 监听回调
      * @memberof BaseView
      */
-    protected addClickEventListener(btn: Button|null, callback: Function) {
+    protected addClickEventListener(btn: Button | null, callback: Function) {
         if (!btn) {
             return;
         }
@@ -181,9 +181,9 @@ export abstract class BaseView {
         return this.node !== null && this.node.activeInHierarchy;
     }
 
-    protected onActive(): void {}
+    protected onActive(): void { }
 
-    protected onInactive(): void {}
+    protected onInactive(): void { }
 
     public show() {
         if (this.isValid()) {

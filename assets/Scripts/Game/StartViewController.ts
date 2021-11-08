@@ -6,10 +6,10 @@ const { ccclass } = _decorator;
 @ccclass('StartViewController')
 export class StartViewController extends BaseViewController<StartView> {
 
-    protected onInit(): void {}
+    protected onInit(): void { }
 
-    protected onDestroy(): void {}
+    protected onDestroy(): void { }
 
-    protected onGameStart(): void {}
+    protected onGameStart(): void { }
 
 }

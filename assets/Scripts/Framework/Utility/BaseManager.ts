@@ -27,8 +27,8 @@ export abstract class BaseManager {
         return this._inited;
     }
 
-    protected onUpdate(deltaTime: number) {}
-    protected onLateUpdate(deltaTime: number) {}
+    protected onUpdate(deltaTime: number) { }
+    protected onLateUpdate(deltaTime: number) { }
 
     protected abstract onInit(): void;
     protected abstract onDestroy(): void;

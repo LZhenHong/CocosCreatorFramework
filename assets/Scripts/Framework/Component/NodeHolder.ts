@@ -5,8 +5,8 @@ const { ccclass, property, disallowMultiple, menu } = _decorator;
 @disallowMultiple
 @menu('Framework/NodeHolder')
 export class NodeHolder extends Component {
-    @property({type: [Node], tooltip: "需要访问的节点", displayName: "Node References"})
-    public nodes: (Node|null)[] = [];
+    @property({ type: [Node], tooltip: "需要访问的节点", displayName: "Node References" })
+    public nodes: (Node | null)[] = [];
 
     private _nodeMap: Map<string, Node> = new Map();
 

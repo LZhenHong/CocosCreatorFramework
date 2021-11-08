@@ -9,8 +9,8 @@ export enum ActiveType {
 @ccclass('ActiveListener')
 @menu('Framework/ActiveListener')
 export class ActiveListener extends Component {
-    @property({type: [EventHandler], tooltip: 'View active 的监听', displayName: 'Active Event Handlers'})
-    public activeHandlers: (EventHandler|null)[] = [];
+    @property({ type: [EventHandler], tooltip: 'View active 的监听', displayName: 'Active Event Handlers' })
+    public activeHandlers: (EventHandler | null)[] = [];
 
     private get _validActiveHandlers() {
         let handlers: EventHandler[] = [];

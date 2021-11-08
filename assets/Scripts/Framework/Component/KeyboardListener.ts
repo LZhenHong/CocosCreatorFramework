@@ -1,17 +1,17 @@
-import { _decorator, Component, systemEvent, SystemEventType, EventKeyboard } from "cc";
+import { _decorator, Component, systemEvent, SystemEvent, EventKeyboard } from "cc";
 const { ccclass, menu } = _decorator;
 
 @ccclass("KeyboardListener")
 @menu('Framework/KeyboardListener')
 export class KeyboardListener extends Component {
     onLoad() {
-        systemEvent.on(SystemEventType.KEY_DOWN, this._onKeyDown, this);
-        systemEvent.on(SystemEventType.KEY_UP, this._onKeyUp, this);
+        systemEvent.on(SystemEvent.EventType.KEY_DOWN, this._onKeyDown, this);
+        systemEvent.on(SystemEvent.EventType.KEY_UP, this._onKeyUp, this);
     }
 
     onDestroy() {
-        systemEvent.off(SystemEventType.KEY_DOWN, this._onKeyDown, this);
-        systemEvent.off(SystemEventType.KEY_UP, this._onKeyUp, this);
+        systemEvent.off(SystemEvent.EventType.KEY_DOWN, this._onKeyDown, this);
+        systemEvent.off(SystemEvent.EventType.KEY_UP, this._onKeyUp, this);
     }
 
     private _onKeyDown(event: EventKeyboard) {

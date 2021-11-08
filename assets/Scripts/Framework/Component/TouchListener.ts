@@ -12,12 +12,12 @@ const { ccclass, property, menu } = _decorator;
 @ccclass('TouchListener')
 @menu('Framework/TouchListener')
 export class TouchListener extends Component {
-    @property({tooltip: '是否阻止触摸事件传递', displayName: 'Swallow Touch'})
+    @property({ tooltip: '是否阻止触摸事件传递', displayName: 'Swallow Touch' })
     public swallowTouch = false;
-    @property({tooltip: '是否将事件注册在捕获阶段', displayName: 'Capture Touch'})
+    @property({ tooltip: '是否将事件注册在捕获阶段', displayName: 'Capture Touch' })
     public captureTouch = false;
-    @property({type: [EventHandler], tooltip: '处理触摸事件', displayName: 'Touch Event Handlers'})
-    public touchHandlers: (EventHandler|null)[] = [];
+    @property({ type: [EventHandler], tooltip: '处理触摸事件', displayName: 'Touch Event Handlers' })
+    public touchHandlers: (EventHandler | null)[] = [];
 
     onLoad() {
         this.node.on(Node.EventType.TOUCH_START, this._onTouchStart, this, this.captureTouch);

@@ -2,12 +2,12 @@ import { BaseManager } from "../Utility/BaseManager";
 
 export class ViewManager extends BaseManager {
 
-    protected onInit() {}
+    protected onInit() { }
 
-    protected onDestroy() {}
+    protected onDestroy() { }
 
-    public showView() {}
+    public showView() { }
 
-    public hideView() {}
+    public hideView() { }
 
 }

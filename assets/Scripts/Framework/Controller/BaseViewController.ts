@@ -5,7 +5,7 @@ const { ccclass } = _decorator;
 
 @ccclass('BaseViewController')
 export abstract class BaseViewController<T extends BaseView> extends BaseController {
-    protected view: T|null = null;
+    protected view: T | null = null;
 
     private _viewClazzName: string = '';
 

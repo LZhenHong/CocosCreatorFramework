@@ -24,35 +24,35 @@ const { ccclass, property } = _decorator;
  */
 @ccclass('GameManager')
 export class GameManager extends Component {
-    @property({type: Camera, tooltip: '游戏 UI 相机', displayName: 'UI Camera'})
-    public uiCamera: Camera|null = null;
-    @property({type: Canvas, tooltip: '游戏 UI 画布', displayName: 'UI Canvas'})
-    public uiCanvas: Canvas|null = null;
+    @property({ type: Camera, tooltip: '游戏 UI 相机', displayName: 'UI Camera' })
+    public uiCamera: Camera | null = null;
+    @property({ type: Canvas, tooltip: '游戏 UI 画布', displayName: 'UI Canvas' })
+    public uiCanvas: Canvas | null = null;
 
     /// 游戏 UI 层级容器
-    @property({type: Node, tooltip: 'UI 根节点', displayName: 'UI Root'})
-    public uiRoot: Node|null = null;
-    @property({type: Node, tooltip: 'Content 的 UI 层级容器', displayName: 'Content UI Container'})
-    public contentUIContainer: Node|null = null;
-    @property({type: Node, tooltip: 'Popup 的 UI 层级容器', displayName: 'Popup UI Container'})
-    public popupUIContainer: Node|null = null;
-    @property({type: Node, tooltip: 'Guide 的 UI 层级容器', displayName: 'Guide UI Container'})
-    public guideUIContainer: Node|null = null;
-    @property({type: Node, tooltip: 'Top 的 UI 层级容器', displayName: 'Top UI Container'})
-    public topUIContainer: Node|null = null;
+    @property({ type: Node, tooltip: 'UI 根节点', displayName: 'UI Root' })
+    public uiRoot: Node | null = null;
+    @property({ type: Node, tooltip: 'Content 的 UI 层级容器', displayName: 'Content UI Container' })
+    public contentUIContainer: Node | null = null;
+    @property({ type: Node, tooltip: 'Popup 的 UI 层级容器', displayName: 'Popup UI Container' })
+    public popupUIContainer: Node | null = null;
+    @property({ type: Node, tooltip: 'Guide 的 UI 层级容器', displayName: 'Guide UI Container' })
+    public guideUIContainer: Node | null = null;
+    @property({ type: Node, tooltip: 'Top 的 UI 层级容器', displayName: 'Top UI Container' })
+    public topUIContainer: Node | null = null;
 
-    @property({tooltip: '游戏 View Prefab 所在路径', displayName: 'View Prefab Directory'})
+    @property({ tooltip: '游戏 View Prefab 所在路径', displayName: 'View Prefab Directory' })
     public viewPrefabDirectory: string = '';
 
-    @property({tooltip: '是否开启多点触摸', displayName: 'Enable Mutiple Touch'})
+    @property({ tooltip: '是否开启多点触摸', displayName: 'Enable Mutiple Touch' })
     public enableMutipleTouch = true;
 
-    @property({tooltip: '设置游戏帧率', displayName: 'Game Frame Rate'})
+    @property({ tooltip: '设置游戏帧率', displayName: 'Game Frame Rate' })
     public gameFrameRate = 60;
 
     private _managers: BaseManager[] = [];
     private _controllers: BaseController[] = [];
-    private static _instance: GameManager|null = null;
+    private static _instance: GameManager | null = null;
 
     public static sharedInstance() {
         return this._instance;
@@ -127,14 +127,14 @@ export class GameManager extends Component {
         }
     }
 
-    static getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
+    static getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T | null {
         if (this.sharedInstance()) {
             return this.sharedInstance()!.getManager(mgrClazz);
         }
         return null;
     }
 
-    getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T|null {
+    getManager<T extends BaseManager>(mgrClazz: Constructor<T>): T | null {
         if (mgrClazz) {
             for (let manager of this._managers) {
                 if (manager.constructor === mgrClazz) {
@@ -165,14 +165,14 @@ export class GameManager extends Component {
         }
     }
 
-    static getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
+    static getController<T extends BaseController>(ctrClazz: Constructor<T>): T | null {
         if (this.sharedInstance()) {
             return this.sharedInstance()!.getController(ctrClazz);
         }
         return null;
     }
 
-    getController<T extends BaseController>(ctrClazz: Constructor<T>): T|null {
+    getController<T extends BaseController>(ctrClazz: Constructor<T>): T | null {
         if (ctrClazz) {
             for (let controller of this._controllers) {
                 if (controller.constructor === ctrClazz) {

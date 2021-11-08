@@ -10,7 +10,7 @@ export abstract class GameUtility {
      * @memberof GameUtility
      */
     public static camelCaseToUnderScore(camelCase: string) {
-        let re = /[A-Z]/; 
+        let re = /[A-Z]/;
         let index = camelCase.search(re);
         while (index !== -1) {
             let firstStr = camelCase.substring(0, index);

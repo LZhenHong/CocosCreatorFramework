@@ -4,8 +4,8 @@ const { ccclass } = _decorator;
 
 @ccclass('StartView')
 export class StartView extends BaseView {
-    private _playButton: Button|null = null;
-    private _settingButton: Button|null = null;
+    private _playButton: Button | null = null;
+    private _settingButton: Button | null = null;
 
     protected onInit() {
         this._playButton = this.getComponentWithName('play_button', Button);
@@ -15,13 +15,13 @@ export class StartView extends BaseView {
         this.addClickEventListener(this._settingButton, this.onSettingButtonHandle);
     }
 
-    protected onOpen() {}
-    protected onClose() {}
+    protected onOpen() { }
+    protected onClose() { }
 
-    protected onPause() {}
-    protected onResume() {}
+    protected onPause() { }
+    protected onResume() { }
 
-    protected onDestroy() {}
+    protected onDestroy() { }
 
     onPlayButtonHandle() {
         console.log("On Play Button Handle");

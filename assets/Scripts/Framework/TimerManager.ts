@@ -5,7 +5,7 @@ import { BaseManager } from './Utility/BaseManager';
 export const TIMER_HANDLER_INVALID = 0;
 
 export class TimerManager extends BaseManager {
-    private _timer: Component|null = null;
+    private _timer: Component | null = null;
 
     private _handler = 0;
     private _callbackMap: Map<number, Function> = new Map();
@@ -86,7 +86,7 @@ export class TimerManager extends BaseManager {
         }
 
         if (this._timer) {
-            let handler = this.loopCallUntil(delayDuration, loopInterval, callback, function(count: number): boolean {
+            let handler = this.loopCallUntil(delayDuration, loopInterval, callback, function (count: number): boolean {
                 return count >= repeatCount;
             });
             return handler;

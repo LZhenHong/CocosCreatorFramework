@@ -1,7 +1,7 @@
 import { BaseManager } from "./Utility/BaseManager";
 
 export class AudioManager extends BaseManager {
-    protected onInit() {}
+    protected onInit() { }
 
-    protected onDestroy() {}
+    protected onDestroy() { }
 }

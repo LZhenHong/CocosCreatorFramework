@@ -7,15 +7,15 @@ const { ccclass, property, disallowMultiple, menu } = _decorator;
 @disallowMultiple
 @menu('Framework/ViewOptions')
 export class ViewOptions extends Component {
-    @property({tooltip: "是否需要蒙板", displayName: "Show Mask"})
+    @property({ tooltip: "是否需要蒙板", displayName: "Show Mask" })
     public showMask: boolean = true;
-    @property({tooltip: "是否响应 Android 物理返回键", displayName: "Enable Android Back"})
+    @property({ tooltip: "是否响应 Android 物理返回键", displayName: "Enable Android Back" })
     public enableAndroidBack: boolean = false;
-    @property({tooltip: "关闭界面时是否销毁", displayName: "Destroy When Close"})
+    @property({ tooltip: "关闭界面时是否销毁", displayName: "Destroy When Close" })
     public destroyWhenClose: boolean = false;
-    @property({type: ViewAnimationEnum, tooltip: "界面展示动画", displayName: "View Animation"})
+    @property({ type: ViewAnimationEnum, tooltip: "界面展示动画", displayName: "View Animation" })
     public viewAnimation = ViewAnimationEnum.None;
-    @property({type: ViewLayerEnum, tooltip: '界面层级', displayName: 'View Layer'})
+    @property({ type: ViewLayerEnum, tooltip: '界面层级', displayName: 'View Layer' })
     public viewLayer = ViewLayerEnum.Content;
 
     resetInEditor() {

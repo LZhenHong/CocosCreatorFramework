@@ -1,15 +1,15 @@
-import { _decorator, Component, Node, EventHandler} from 'cc';
+import { _decorator, Component, Node, EventHandler } from 'cc';
 const { ccclass, property, menu } = _decorator;
 
 @ccclass('MouseListener')
 @menu('Framework/MouseListener')
 export class MouseListener extends Component {
-    @property({tooltip: '是否将事件注册在捕获阶段', displayName: 'Capture Touch'})
+    @property({ tooltip: '是否将事件注册在捕获阶段', displayName: 'Capture Touch' })
     public captureTouch = false;
-    @property({tooltip: '是否响应鼠标事件', displayName: 'Receive Mouse Event'})
+    @property({ tooltip: '是否响应鼠标事件', displayName: 'Receive Mouse Event' })
     public receiveMouseEvent = false;
-    @property({type: [EventHandler], tooltip: '处理鼠标事件', displayName: 'Mouse Event Handlers'})
-    public mouseHandlers: (EventHandler|null)[] = [];
+    @property({ type: [EventHandler], tooltip: '处理鼠标事件', displayName: 'Mouse Event Handlers' })
+    public mouseHandlers: (EventHandler | null)[] = [];
 
     onLoad() {
         this.node.on(Node.EventType.MOUSE_UP, this._onMouseUp, this, this.captureTouch);

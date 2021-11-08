@@ -7,9 +7,9 @@ export type AssetLoadProgress = (progress: number) => void;
 export type AssetLoadComplete<T extends Asset> = (isSuccess: boolean, asset: T, error?: Error) => void;
 
 export class AssetsManager extends BaseManager {
-    protected onInit() {}
+    protected onInit() { }
 
-    protected onDestroy() {}
+    protected onDestroy() { }
 
     public loadAssetFromBundle<T extends Asset>(assetPath: string, asset: Constructor<T>, bundle: AssetManager.Bundle, assetLoadComplete: AssetLoadComplete<T>, assetLoadProgress: AssetLoadProgress) {
         this.loadAssetsFromBundle([assetPath], asset, bundle, assetLoadComplete, assetLoadProgress);

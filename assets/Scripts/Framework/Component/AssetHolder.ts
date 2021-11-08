@@ -5,8 +5,8 @@ const { ccclass, property, disallowMultiple, menu } = _decorator;
 @disallowMultiple
 @menu('Framework/AssetHolder')
 export class AssetHolder extends Component {
-    @property({type: [Asset], tooltip: "需要访问的资源", displayName: "Asset References"})
-    public assets: (Asset|null)[] = [];
+    @property({ type: [Asset], tooltip: "需要访问的资源", displayName: "Asset References" })
+    public assets: (Asset | null)[] = [];
 
     private _assetMap: Map<string, Asset> = new Map();
 
