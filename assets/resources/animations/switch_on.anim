@@ -1,0 +1,36 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "switch_on",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.16666666666666666,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "switch_img": {
+        "props": {
+          "x": [
+            {
+              "frame": 0,
+              "value": -35,
+              "curve": "sineInOut"
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": 35
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.16666666666666666,
+      "func": "onAnimationCompleted",
+      "params": []
+    }
+  ]
+}
