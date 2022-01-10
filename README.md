@@ -1,6 +1,6 @@
-# Fireballs
+# CocosCreatorFramework
 
-Just a Cocos Creator Game.
+A tiny Cocos Creator Framework.
 
 ## TypeScript
 
